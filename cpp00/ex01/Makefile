@@ -15,7 +15,7 @@ CPPFLAG	=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
 NAME	=	phonebook
-SRC		=	phonebook.cpp
+SRC		=	main.cpp	class.hpp
 
 all: $(NAME)
 
