@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:46:20 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/03 18:57:11 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/04 19:42:00 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool	addContact(std::string display, std::string str) {
 void PhoneBook::add(void) {
 	Contact		tmpContact;
 	std::string	str;
-	int			flag = 0;
+	int			flag	= 0;
 
 	std::cout << "Please, Fill all the informations below:" << std::endl;
 	std::cout << " - " << FN << ": ";
@@ -59,7 +59,7 @@ void PhoneBook::add(void) {
 		return ;
 	if (_size == 8) {
 		if (_position == 8)
-			_position = 0;
+			_position	= 0;
 		_Contact[_position].setFirstName(tmpContact.getFirstName());
 		_Contact[_position].setLastName(tmpContact.getLastName());
 		_Contact[_position].setNickName(tmpContact.getNickName());
@@ -92,20 +92,33 @@ void PhoneBook::printContacts(void) {
 	}
 }
 
+int	getInput(std::string str)
+{
+	int	num	= 0;
+
+	for(uint i = 0; i < str.length(); i++) {
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return (-1);
+		num = (num * 10) + (str[i] - 48);
+	}
+	return (num);
+}
+
 void PhoneBook::getIndex(void) {
 	int			num;
 	std::string	str;
 
 	if (!_size)
 		return ;
-	std::cout << "Select an index between [1 & " << _size << "] to display the contact information: ";
+	std::cout << "Select an index between to display the contact information: ";
 	while (true) {
+		std::cin.clear();
 		fflush(stdin);
-		std::cin >> num;
-		if (std::cin.fail())
+		std::getline(std::cin >> std::ws, str);
+		num = getInput(str);
+		if (num == -1)
 		{		
 			std::cout << "Wrong Input, Please try again: ";
-			std::cin.clear();
 			continue;
 		}
 		if (std::cin.eof())

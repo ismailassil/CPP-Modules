@@ -6,12 +6,12 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/07 23:39:08 by musashi           #+#    #+#              #
-#    Updated: 2024/06/03 19:17:22 by iassil           ###   ########.fr        #
+#    Updated: 2024/06/04 18:28:55 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP		=	c++
-CPP		+=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPP		+=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
 NAME	=	phonebook
