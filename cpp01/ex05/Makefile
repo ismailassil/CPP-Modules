@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/06 01:17:04 by iassil            #+#    #+#              #
-#    Updated: 2024/06/06 12:30:32 by iassil           ###   ########.fr        #
+#    Updated: 2024/06/06 03:03:28 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ CPP		=	c++
 CPP		+=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
-NAME	=	main
-SRC		=	Replace.cpp		main.cpp
-HEADER	=	main.hpp		Replace.hpp
+NAME	=	harl
+SRC		=	Harl.cpp	main.cpp
+HEADER	=	Harl.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)

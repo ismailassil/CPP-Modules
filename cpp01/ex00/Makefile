@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/06 01:17:04 by iassil            #+#    #+#              #
-#    Updated: 2024/06/06 12:30:32 by iassil           ###   ########.fr        #
+#    Created: 2024/06/05 06:22:02 by iassil            #+#    #+#              #
+#    Updated: 2024/06/05 06:22:03 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,10 @@ CPP		=	c++
 CPP		+=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
-NAME	=	main
-SRC		=	Replace.cpp		main.cpp
-HEADER	=	main.hpp		Replace.hpp
+NAME	=	zombie
+SRC		=	main.cpp		Zombie.cpp		newZombie.cpp	\
+			randomChump.cpp
+HEADER	=	Zombie.hpp		main.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)

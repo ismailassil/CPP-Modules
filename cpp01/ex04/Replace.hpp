@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 16:57:37 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/05 04:36:16 by iassil           ###   ########.fr       */
+/*   Created: 2024/06/06 12:00:36 by iassil            #+#    #+#             */
+/*   Updated: 2024/06/06 12:28:25 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include "Contact.hpp"
+#ifndef REPLACE_HPP
+#define REPLACE_HPP
 #include "main.hpp"
 
-class PhoneBook {
+class Replace {
 	private:
-		Contact	_Contact[8];
-		int		_size;
-		int		_position;
+		std::fstream	InputFile;
+		std::fstream	OutputFile;
+		std::string		FileName;
+		char*			s1;
+		char*			s2;
+	
 	public:
-		PhoneBook();
-		void add(void);
-		void printContacts(void);
-		void getIndex(void);
+		Replace( std::string filename, char* s1, char* s2 );
+		std::string	getFileName( void );
+		bool		OpenFiles( void );
+		void		ReplaceString( void );
+		~Replace( void );
 };
-#endif
+
+#endif // !REPLACE_HPP
+

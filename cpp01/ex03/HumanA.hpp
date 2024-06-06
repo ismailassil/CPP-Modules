@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 16:57:37 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/05 04:36:16 by iassil           ###   ########.fr       */
+/*   Created: 2024/06/05 07:11:45 by iassil            #+#    #+#             */
+/*   Updated: 2024/06/05 22:02:57 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include "Contact.hpp"
-#include "main.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
+#include "Weapon.hpp"
 
-class PhoneBook {
+class HumanA {
 	private:
-		Contact	_Contact[8];
-		int		_size;
-		int		_position;
+		Weapon		*weapon;
+		std::string	name;
+
 	public:
-		PhoneBook();
-		void add(void);
-		void printContacts(void);
-		void getIndex(void);
+		HumanA ( std::string name, Weapon &tool );
+		void	attack( void );
 };
+
 #endif

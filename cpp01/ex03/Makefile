@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/06 01:17:04 by iassil            #+#    #+#              #
-#    Updated: 2024/06/06 12:30:32 by iassil           ###   ########.fr        #
+#    Created: 2024/06/05 06:21:40 by iassil            #+#    #+#              #
+#    Updated: 2024/06/05 21:55:06 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ CPP		+=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
 NAME	=	main
-SRC		=	Replace.cpp		main.cpp
-HEADER	=	main.hpp		Replace.hpp
+SRC		=	HumanA.cpp		HumanB.cpp		Weapon.cpp		main.cpp
+HEADER	=	HumanA.hpp		HumanB.hpp		Weapon.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)

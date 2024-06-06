@@ -6,11 +6,17 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/03 16:46:20 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/04 19:42:00 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/06 01:20:28 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "PhoneBook.hpp"
 #include "main.hpp"
+
+PhoneBook::PhoneBook() {
+	_size = 0;
+	_position = 0;
+}
 
 std::string	AdjustString(std::string ptr) {
 	if (ptr.length() <= 10)
@@ -20,10 +26,10 @@ std::string	AdjustString(std::string ptr) {
 
 void	print_head(void) {
 	std::cout << "\t" << std::string(10*4 + 4, '-') << '\n';
-	std::cout << "\t|" << std::setw(10) << ID << "|";
-	std::cout << std::setw(10) << FN << "|";
-	std::cout << std::setw(10) << LN << "|";
-	std::cout << std::setw(10) << NN << "|\n";
+	std::cout << "\t|" << std::setw(10) << ID << std::right << "|";
+	std::cout << std::setw(10) << FN << std::right << "|";
+	std::cout << std::setw(10) << LN << std::right << "|";
+	std::cout << std::setw(10) << NN << std::right << "|\n";
 	std::cout << "\t" << std::string(10 * 4 + 5, '-') << '\n';
 }
 

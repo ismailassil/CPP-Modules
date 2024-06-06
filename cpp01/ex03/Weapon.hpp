@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/03 16:57:37 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/05 04:36:16 by iassil           ###   ########.fr       */
+/*   Created: 2024/06/05 07:11:22 by iassil            #+#    #+#             */
+/*   Updated: 2024/06/05 07:24:45 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include "Contact.hpp"
-#include "main.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
+#include <iostream>
 
-class PhoneBook {
+class Weapon {
 	private:
-		Contact	_Contact[8];
-		int		_size;
-		int		_position;
+		std::string	type;
 	public:
-		PhoneBook();
-		void add(void);
-		void printContacts(void);
-		void getIndex(void);
+		Weapon ( std::string type );
+		std::string	getType( void ) const ;
+		void		setType( std::string input );
 };
+
 #endif
