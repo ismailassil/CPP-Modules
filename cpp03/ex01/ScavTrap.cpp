@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:12:15 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/10 22:03:47 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ScavTrap::ScavTrap( const ScavTrap& scavTrap ) {
 }
 
 ScavTrap&	ScavTrap::operator=( const ScavTrap& scavTrap ) {
-	std::cout << "ScavTrap Copy Assignement Operator Called" << std::endl;
+	std::cout << "ScavTrap Copy Assignment Operator Called" << std::endl;
 	if (this == &scavTrap)
 		return (*this);
 	this->m_name = scavTrap.m_name;

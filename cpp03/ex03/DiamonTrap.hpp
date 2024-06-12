@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:17:22 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/10 22:35:40 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	DiamondTrap : public ScavTrap, public FragTrap {
 		DiamondTrap( void ); // Default Constructor
 		DiamondTrap( std::string name );
 		DiamondTrap( const DiamondTrap& diamonTrap ); // Copy Constructor
-		DiamondTrap	operator=( const DiamondTrap& diamonTrap ); // Copy Assignement Constructor
+		DiamondTrap	operator=( const DiamondTrap& diamonTrap ); // Copy Assignment Constructor
 		~DiamondTrap( void ); // Destructor
 
 		void			whoAmI();

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:17:15 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/11 15:24:40 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ DiamondTrap::DiamondTrap( const DiamondTrap& diamonTrap ) {
 }
 
 DiamondTrap	DiamondTrap::operator=( const DiamondTrap& diamonTrap ) {
-	std::cout << "DiamondTrap Assignement Operator Called" << std::endl;
+	std::cout << "DiamondTrap Assignment Operator Called" << std::endl;
 	if (this == &diamonTrap)
 		return (*this);
 	this->m_name = diamonTrap.m_name;

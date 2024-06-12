@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 05:38:53 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/10 22:43:15 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap( const ClapTrap& clapTrap ) {
 }
 
 ClapTrap&	ClapTrap::operator=( const ClapTrap& clapTrap ) {
-	std::cout << "ClapTrap Copy Assignement Operator Called" << std::endl;
+	std::cout << "ClapTrap Copy Assignment Operator Called" << std::endl;
 	if (this == &clapTrap)
 		return (*this);
 	this->m_name = clapTrap.m_name;

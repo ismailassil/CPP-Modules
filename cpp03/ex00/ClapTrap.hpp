@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 05:39:00 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/09 08:17:33 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	ClapTrap {
 		ClapTrap( void ); // Default Constructor
 		ClapTrap( std::string name );
 		ClapTrap( const ClapTrap& target ); // Copy Constructor
-		ClapTrap&	operator=( const ClapTrap& target ); // Copy Assignement Operator
+		ClapTrap&	operator=( const ClapTrap& target ); // Copy Assignment Operator
 		~ClapTrap( void ); // Deconstructor
 
 		void	attack( const std::string& target );

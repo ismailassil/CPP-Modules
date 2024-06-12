@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongWrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 21:54:04 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
+/*   Created: 2024/06/11 15:47:18 by iassil            #+#    #+#             */
+/*   Updated: 2024/06/11 22:04:35 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "ClapTrap.hpp"
+#include "WrongAnimal.hpp"
 
-class	FragTrap : virtual public ClapTrap {
+class	WrongCat : public WrongAnimal {
 	public:
-		FragTrap( void ); // Default Constructor
-		FragTrap( const std::string name );
-		FragTrap( const FragTrap& fragtrap ); // Constructor
-		FragTrap&	operator=( const FragTrap& fragtrap ); // Copy Assignment operator
-		~FragTrap( void );	// Destructor
-
-		void			highFivesGuys(void);
+		WrongCat( void ); // Default Constructor
+		WrongCat( const WrongCat& wrongCat ); // Copy Constructor
+		WrongCat&	operator=( const WrongCat &wrongCat ); // Copy Assignment Operator
+		~WrongCat( void ); // Destructor
+		void	makeSound( void ) const ;
 };

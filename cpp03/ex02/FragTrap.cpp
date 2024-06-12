@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 21:54:01 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/10 22:08:52 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ FragTrap::FragTrap( const FragTrap& fragtrap ) {
 }
 
 FragTrap&	FragTrap::operator=( const FragTrap& fragtrap ) {
-	std::cout << "FragTrap Copy Assignement Operator Called" << std::endl;
+	std::cout << "FragTrap Copy Assignment Operator Called" << std::endl;
 	if (this == &fragtrap)
 		return (*this);
 	this->m_name = fragtrap.m_name;
