@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 15:42:54 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/26 17:10:52 by iassil           ###   ########.fr       */
+/*   Created: 2024/06/11 16:00:41 by iassil            #+#    #+#             */
+/*   Updated: 2024/06/25 17:17:56 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class	Animal {
-	protected:
-		std::string	type;
-	
+class	Dog : public Animal {
+	private:
+		Brain*	nbrain;
+
 	public:
-		Animal( void ); // Default Constructor
-		Animal( const Animal& animal ); // Copy Constructor
-		Animal&	operator=( const Animal &animal ); // Copy Assignment Operator
-		virtual ~Animal( void ); // Destructor
-		virtual void				makeSound( void ) const ;
-		const std::string	getType( void ) const ;
+		Dog( void ); // Default Constructor
+		Dog( const Dog& Dog ); // Copy Constructor
+		Dog&	operator=( const Dog &dog ); // Copy Assignment Operator
+		~Dog( void ); // Destructor
+		void	makeSound( void ) const ;
 };
