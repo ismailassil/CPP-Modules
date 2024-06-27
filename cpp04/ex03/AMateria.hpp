@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 15:42:54 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/26 17:11:06 by iassil           ###   ########.fr       */
+/*   Created: 2024/06/27 12:07:05 by iassil            #+#    #+#             */
+/*   Updated: 2024/06/27 15:05:35 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
+#include "main.hpp" // IWYU pragma: keep
 
-class	Animal {
+class AMateria {
 	protected:
 		std::string	type;
-	
+		// [...]
 	public:
-		Animal( void ); // Default Constructor
-		Animal( const Animal& animal ); // Copy Constructor
-		Animal&	operator=( const Animal &animal ); // Copy Assignment Operator
-		virtual ~Animal( void ); // Destructor
-		virtual void		makeSound( void ) const = 0;
-		const std::string	getType( void ) const ;
+		// [...]
+		AMateria( void ); // Default Constructor
+		AMateria( const AMateria& other ); // Copy Constructor
+		AMateria&	operator=( const AMateria& other ); // Copy Assignment Operator
+		virtual	~AMateria();
+
+		AMateria(std::string const & type);
+		std::string const & getType() const; // Returns the materia type
+		virtual AMateria* clone() const = 0;
+		virtual void use(ICharacter& target);
 };

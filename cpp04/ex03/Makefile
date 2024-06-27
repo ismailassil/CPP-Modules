@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 05:37:36 by iassil            #+#    #+#              #
-#    Updated: 2024/06/25 17:11:36 by iassil           ###   ########.fr        #
+#    Updated: 2024/06/27 12:01:51 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ CPP		=	c++
 CPP		+=	-Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		=	rm -f
 
-NAME	=	animal
-SRC		=	Animal.cpp		Dog.cpp				WrongCat.cpp	Brain.cpp	\
-			Cat.cpp			WrongAnimal.cpp		main.cpp
-HEADER	=	Animal.hpp		Dog.hpp				WrongCat.hpp	Brain.hpp	\
-			Cat.hpp			WrongAnimal.hpp		main.hpp
+NAME	=	amateria
+SRC		=	AMateria.cpp		ICharacter.cpp			Ice.cpp		\
+			Cure.cpp			IMateriaSource.cpp		main.cpp
+HEADER	=	AMateria.hpp		ICharacter.hpp			Ice.hpp		\
+			Cure.hpp			IMateriaSource.hpp		main.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)

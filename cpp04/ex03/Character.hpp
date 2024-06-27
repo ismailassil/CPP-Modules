@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/11 16:00:41 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/25 17:17:56 by iassil           ###   ########.fr       */
+/*   Created: 2024/06/27 14:09:26 by iassil            #+#    #+#             */
+/*   Updated: 2024/06/27 15:05:20 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include "main.hpp" // IWYU pragma: keep
 
-class	Dog : public Animal {
+class	Character : public ICharacter {
 	private:
-		Brain*	nbrain;
+		static int	index;
+		AMateria*	inventory[4];
+		std::string	name;
 
 	public:
-		Dog( void ); // Default Constructor
-		Dog( const Dog& Dog ); // Copy Constructor
-		Dog&	operator=( const Dog &dog ); // Copy Assignment Operator
-		~Dog( void ); // Destructor
-		void	makeSound( void ) const ;
+		Character( void );
+		Character( const Character& other );
+		Character&	operator=( const Character& other );
+		~Character();
+		std::string const & getName() const ;
+		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, ICharacter& target);
 };

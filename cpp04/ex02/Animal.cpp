@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:45:42 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/11 16:09:15 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/27 10:36:06 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ Animal::~Animal( void ) {
 	std::cout << "Animal Desctructor Called" << std::endl;
 }
 
-void	Animal::makeSound( void ) const {
-	std::cout << "?????" << std::endl;
-}
-
-const std::string		Animal::getType( void ) const {
+const std::string	Animal::getType( void ) const {
 	return (this->type);
 }
