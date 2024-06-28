@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/27 14:09:26 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/28 11:14:03 by iassil           ###   ########.fr       */
+/*   Created: 2024/06/28 11:00:40 by iassil            #+#    #+#             */
+/*   Updated: 2024/06/28 11:21:34 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "main.hpp" // IWYU pragma: keep
 
-class	Character : public ICharacter {
+class	MateriaSource : public IMateriaSource {
 	private:
 		const static int	SIZE;
-		int					index;
-		AMateria*			inventory[4];
-		std::string			name;
+		int					count;
+		AMateria*			src[4];
 
 	public:
+		// Constructors and Destrucor
 		////////////////////////////////////////////////
-		// Constructors and Destructor
-		Character( void );
-		Character( const Character& other );
-		Character&	operator=( const Character& other );
-		~Character();
+		MateriaSource( void ); // Default Constructor
+		MateriaSource( const MateriaSource& other ); // Copy Constructor
+		MateriaSource&	operator=( const MateriaSource& other ); // Copy Assignment Operator
+		~MateriaSource(); // Destructor
 		////////////////////////////////////////////////
-		Character( const std::string name );
-		////////////////////////////////////////////////
-		std::string const & getName() const ;
-		void equip(AMateria* m);
-		void unequip(int idx);
-		void use(int idx, ICharacter& target);
+		void		learnMateria(AMateria* other);
+		AMateria*	createMateria(std::string const & type);
 };

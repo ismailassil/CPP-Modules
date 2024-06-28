@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:21:07 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/27 12:27:06 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/28 16:20:46 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ std::string const & AMateria::getType() const {
 }
 
 void	AMateria::use(ICharacter& target) {
-	
+	std::cout << "* Just the Base Class doing something *" << std::endl;
 }

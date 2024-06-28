@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:07:47 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/27 15:03:21 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/28 10:22:44 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,3 +17,4 @@
 #include "Ice.hpp" // IWYU pragma: keep
 #include "ICharacter.hpp" // IWYU pragma: keep
 #include "IMateriaSource.hpp" // IWYU pragma: keep
+#include "Character.hpp" // IWYU pragma: keep
