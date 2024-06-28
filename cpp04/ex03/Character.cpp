@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 14:11:41 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/28 16:28:18 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/28 16:29:58 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,6 @@ void	Character::use(int idx, ICharacter& target) {
 		to use the Materia at the slot[idx], and pass the
 		target parameter to the AMateria::use function.
 	*/
+	if (this->inventory[idx])
+		this->inventory[idx]->use(target);
 }
