@@ -6,12 +6,12 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:13:59 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/27 15:06:01 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:37:15 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "main.hpp" // IWYU pragma: keep
+#include "AMateria.hpp"
 
 class IMateriaSource {
 	public:

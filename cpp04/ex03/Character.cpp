@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 14:11:41 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/28 16:29:58 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/30 10:59:39 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Character::Character( void ) {
 	index = 0;
 	for ( int i = 0; i < SIZE; i++ )
 		inventory[i] = 0;
-	this->name = "Abdellah";
+	this->name = "Not Defined";
 }
 
 Character::Character( const Character& other ) {
@@ -53,19 +53,29 @@ Character::~Character() {
 	}
 }
 
-Character::Character( const std::string _name ) : name(_name), index (0) { }
+Character::Character( const std::string _name ) {
+	index = 0;
+	this->name = _name;
+	for ( int i = 0; i < SIZE; i++ )
+		inventory[i] = 0;
+}
 
 std::string const & Character::getName() const {
 	return (this->name);
 }
 
 void	Character::equip(AMateria* m) {
-	if (index >= 0 && index <= 3)
+	if (m == NULL) {
+		std::cerr << "NULL Materia" << std::endl;
+		return ;
+	}
+	if (index >= 0 && index <= 3) {
 		this->inventory[index++] = m->clone();
+	}
 }
 
 void	Character::unequip(int idx) {
-	if ((idx < 0 && idx > 3) || idx > index)
+	if (idx < 0 || idx > 3 || idx > index)
 		return ;
 	this->inventory[idx] = 0;
 	for ( int i = idx; i < index; i++ )
@@ -74,7 +84,7 @@ void	Character::unequip(int idx) {
 }
 
 void	Character::use(int idx, ICharacter& target) {
-	if ((idx < 0 && idx > 3) || idx > index)
+	if (idx < 0 || idx > 3 || idx > index)
 		return ;
 	// NOTE - to be handled
 	/*	

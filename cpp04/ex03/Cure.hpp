@@ -6,12 +6,12 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 13:35:00 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/27 15:06:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:36:54 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "main.hpp" // IWYU pragma: keep
+#include "AMateria.hpp"
 
 class	Cure : public AMateria {
 	public:

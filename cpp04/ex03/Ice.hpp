@@ -6,12 +6,12 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:38:05 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/27 15:06:14 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:37:02 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "main.hpp" // IWYU pragma: keep
+#include "AMateria.hpp"
 
 class	Ice : public AMateria {
 	public:

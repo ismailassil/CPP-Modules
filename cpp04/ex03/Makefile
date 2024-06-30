@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 05:37:36 by iassil            #+#    #+#              #
-#    Updated: 2024/06/27 12:01:51 by iassil           ###   ########.fr        #
+#    Updated: 2024/06/30 11:00:08 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,11 @@ CPP		+=	-Wall -Wextra -Werror -std=c++98 -Wshadow
 RM		=	rm -f
 
 NAME	=	amateria
-SRC		=	AMateria.cpp		ICharacter.cpp			Ice.cpp		\
-			Cure.cpp			IMateriaSource.cpp		main.cpp
-HEADER	=	AMateria.hpp		ICharacter.hpp			Ice.hpp		\
-			Cure.hpp			IMateriaSource.hpp		main.hpp
+SRC		=	AMateria.cpp		Cure.cpp			MateriaSource.cpp	\
+			Character.cpp		Ice.cpp				main.cpp
+HEADER	=	AMateria.hpp		ICharacter.hpp		MateriaSource.hpp	\
+			Character.hpp		IMateriaSource.hpp	main.hpp			\
+			Cure.hpp			Ice.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)

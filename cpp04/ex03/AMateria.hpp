@@ -6,12 +6,14 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:07:05 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/27 15:05:35 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/30 09:48:47 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "main.hpp" // IWYU pragma: keep
+#include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria {
 	protected:

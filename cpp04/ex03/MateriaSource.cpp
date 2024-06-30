@@ -6,14 +6,13 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:02:53 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/28 13:55:21 by iassil           ###   ########.fr       */
+/*   Updated: 2024/06/30 10:59:16 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
-#include "AMateria.hpp"
 
-const int	MateriaSource::SIZE = 0;
+const int	MateriaSource::SIZE = 4;
 
 MateriaSource::MateriaSource( void ) {
 	this->count = 0;
@@ -42,6 +41,7 @@ MateriaSource&	MateriaSource::operator=( const MateriaSource& other ) {
 				src[i] = 0;
 		}
 	}
+	return (*this);
 }
 
 MateriaSource::~MateriaSource() {
@@ -63,7 +63,11 @@ void		MateriaSource::learnMateria(AMateria* other) {
 }
 
 AMateria*	MateriaSource::createMateria(std::string const & type) {
-	if (count != 0 && src[count]->getType() == type)
-		return (src[count]->clone());
+	if (count != 0) {
+		for (int i = 0; i < count; i++) {
+			if (src[i]->getType() == type)
+				return (src[i]->clone());
+		}
+	}
 	return (0);
 }
