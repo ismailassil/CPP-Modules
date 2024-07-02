@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:02:53 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/30 10:59:16 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/02 09:31:10 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ MateriaSource&	MateriaSource::operator=( const MateriaSource& other ) {
 }
 
 MateriaSource::~MateriaSource() {
-	for ( int i = 0; i < count; i++ ) {
-		delete src[i];
+	for ( int i = 0; i < SIZE; i++ ) {
+		if (src[i])
+			delete src[i];
 	}
 }
 
@@ -54,8 +55,9 @@ void		MateriaSource::learnMateria(AMateria* other) {
 	if (count > 3)
 		return ;
 	for ( int i = 0; i < SIZE; i++ ) {
-		if (src[i] == 0) {
-			src[i] = other->clone();
+		if (!src[i]) {
+			// delete other;
+			src[i] = other;
 			count++;
 			break ;
 		}
@@ -65,8 +67,9 @@ void		MateriaSource::learnMateria(AMateria* other) {
 AMateria*	MateriaSource::createMateria(std::string const & type) {
 	if (count != 0) {
 		for (int i = 0; i < count; i++) {
-			if (src[i]->getType() == type)
+			if (src[i] && src[i]->getType() == type) {
 				return (src[i]->clone());
+			}
 		}
 	}
 	return (0);

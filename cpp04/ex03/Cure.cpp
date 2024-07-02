@@ -6,11 +6,12 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 13:35:55 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/27 13:36:48 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/02 09:13:37 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "AMateria.hpp"
 
 Cure::Cure( void ) {
 	this->type = "cure";
@@ -26,7 +27,7 @@ Cure&	Cure::operator=( const Cure& other ) {
 	return (*this);
 }
 
-Cure::~Cure() { }
+Cure::~Cure() {}
 
 AMateria* Cure::clone() const {
 	return (new Cure(*this));

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:40:35 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/30 10:16:15 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/02 09:13:34 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Ice&	Ice::operator=( const Ice& other ) {
 	return (*this);
 }
 
-Ice::~Ice() { }
+Ice::~Ice() {}
 
 AMateria* Ice::clone() const {
 	return (new Ice(*this));
