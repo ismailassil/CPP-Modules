@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/05 06:21:40 by iassil            #+#    #+#              #
-#    Updated: 2024/06/05 21:55:06 by iassil           ###   ########.fr        #
+#    Updated: 2024/07/08 19:01:46 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,11 +23,20 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "$(YELLOW)[ ~ ] Compilation of the Objects files...$(RESET)"
-	@$(CPP) $^ -o $@
+	$(CPP) $^ -o $@
 	@echo "$(GREEN)[ ✓ ] Executable file Compiled Successfully!$(RESET)"
 
-%.o: %.cpp $(HEADER)
-	@$(CPP) -c $< -o $@
+main.o: main.cpp $(HEADER)
+	$(CPP) -c $< -o $@
+
+HumanA.o: HumanA.cpp HumanA.hpp
+	$(CPP) -c $< -o $@
+
+HumanB.o: HumanB.cpp HumanB.hpp
+	$(CPP) -c $< -o $@
+
+Weapon.o: Weapon.cpp Weapon.hpp
+	$(CPP) -c $< -o $@
 
 re: clean $(NAME)
 

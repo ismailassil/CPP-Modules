@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 07:11:28 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/05 07:25:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/08 19:09:09 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Weapon::Weapon ( std::string type ) {
 	this->type = type;
 }
 
-std::string	Weapon::getType( void ) const {
+const std::string&	Weapon::getType( void ) const {
 	return (this->type);
 }
 

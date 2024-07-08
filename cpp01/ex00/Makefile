@@ -6,12 +6,12 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/05 06:22:02 by iassil            #+#    #+#              #
-#    Updated: 2024/06/05 06:22:03 by iassil           ###   ########.fr        #
+#    Updated: 2024/07/08 17:55:00 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP		=	c++
-CPP		+=	-Wall -Wextra -Werror -std=c++98
+CPP		+=	-Wall -Wextra -Werror -std=c++98 -ggdb3
 RM		=	rm -f
 
 NAME	=	zombie
@@ -27,7 +27,16 @@ $(NAME): $(OBJ)
 	@$(CPP) $^ -o $@
 	@echo "$(GREEN)[ ✓ ] Executable file Compiled Successfully!$(RESET)"
 
-%.o: %.cpp $(HEADER)
+main.o: main.cpp main.hpp
+	@$(CPP) -c $< -o $@
+
+newZombie.o: newZombie.cpp main.hpp
+	@$(CPP) -c $< -o $@
+
+randomChump.o: randomChump.cpp main.hpp
+	@$(CPP) -c $< -o $@
+
+Zombie.o: Zombie.cpp Zombie.hpp
 	@$(CPP) -c $< -o $@
 
 re: clean $(NAME)

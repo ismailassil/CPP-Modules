@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 12:00:36 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/06 12:32:27 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/08 20:05:49 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,12 @@ Replace::~Replace( void ) {
 
 bool	Replace::OpenFiles( void ) {
 	this->InputFile.open(this->FileName, std::fstream::in);
-	if (this->InputFile.fail())
-	{
-		std::cerr << "Error opening  [" << this->FileName << "]" << std::endl;
+	if (this->InputFile.fail()) {
+		std::cerr << "Error opening [" << this->FileName << "]" << std::endl;
 		return (true);
 	}
 	this->OutputFile.open(this->FileName.append(".replace"), std::fstream::app);
-	if (this->OutputFile.fail())
-	{
+	if (this->OutputFile.fail()) {
 		std::cerr << "Error opening [" << this->FileName.append(".replace") << "]" << std::endl;
 		return (true);
 	}
@@ -41,7 +39,7 @@ bool	Replace::OpenFiles( void ) {
 
 void	Replace::ReplaceString( void ) {
 	std::string	input;
-	
+
 	if (Replace::OpenFiles())
 		return ;
 	while (std::getline(this->InputFile, input)) {
@@ -50,9 +48,7 @@ void	Replace::ReplaceString( void ) {
 			if (!std::strncmp(line + i, this->s1, strlen(s1))) {
 				this->OutputFile << s2;
 				i += (strlen(s2) - 1);
-			}
-			else
-			{
+			} else {
 				this->OutputFile << line[i];
 				i++;
 			}

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 07:11:22 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/05 07:24:45 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/08 19:09:04 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ class Weapon {
 	private:
 		std::string	type;
 	public:
-		Weapon ( std::string type );
-		std::string	getType( void ) const ;
-		void		setType( std::string input );
+		Weapon( std::string type );
+		const std::string&	getType( void ) const ;
+		void				setType( std::string input );
 };
 
 #endif

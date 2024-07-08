@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 04:24:27 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/06 09:42:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/08 18:46:33 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	Zombie::setName( std::string name ) {
 }
 
 Zombie::~Zombie ( void ) {
-	std::cout << this->_name << " Has been destroyed" << std::endl;
+	std::cout << this->_name << " has been destroyed" << std::endl;
 }
