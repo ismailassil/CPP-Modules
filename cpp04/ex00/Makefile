@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 05:37:36 by iassil            #+#    #+#              #
-#    Updated: 2024/06/25 17:11:18 by iassil           ###   ########.fr        #
+#    Updated: 2024/07/14 22:58:05 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ RM		=	rm -f
 NAME	=	animal
 SRC		=	Animal.cpp		Dog.cpp				WrongCat.cpp	\
 			Cat.cpp			WrongAnimal.cpp		main.cpp
-HEADER	=	Animal.hpp		Dog.hpp				WrongCat.hpp	\
-			Cat.hpp			WrongAnimal.hpp		main.hpp
+HEADER	=	Animal.hpp		Dog.hpp				Cat.hpp			\
+			WrongCat.hpp	WrongAnimal.hpp		main.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)
@@ -28,7 +28,22 @@ $(NAME): $(OBJ)
 	@$(CPP) $^ -o $@
 	@echo "$(GREEN)[ ✓ ] Executable file Compiled Successfully!$(RESET)"
 
-%.o: %.cpp $(HEADER)
+main.o: main.cpp main.hpp
+	@$(CPP) -c $< -o $@
+
+Animal.o: Animal.cpp Animal.hpp
+	@$(CPP) -c $< -o $@
+
+Cat.o: Cat.cpp Cat.hpp Animal.hpp
+	@$(CPP) -c $< -o $@
+
+Dog.o: Dog.cpp Dog.hpp Animal.hpp
+	@$(CPP) -c $< -o $@
+
+WrongAnimal.o: WrongAnimal.cpp WrongAnimal.hpp
+	@$(CPP) -c $< -o $@
+
+WrongCat.o: WrongCat.cpp WrongCat.hpp WrongAnimal.hpp
 	@$(CPP) -c $< -o $@
 
 re: clean $(NAME)

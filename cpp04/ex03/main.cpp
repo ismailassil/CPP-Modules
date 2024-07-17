@@ -6,18 +6,13 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 10:21:35 by iassil            #+#    #+#             */
-/*   Updated: 2024/07/02 09:32:19 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/17 10:14:40 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
-
-void leaks(void) {
-	system("leaks amateria");
-}
+#include "main.hpp" // IWYU pragma: keep
 
 int main( void ) {
-	atexit(leaks);
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -26,10 +21,8 @@ int main( void ) {
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	// delete tmp;
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	// delete tmp;
 
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);

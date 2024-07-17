@@ -6,12 +6,13 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 12:07:05 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/30 09:48:47 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/13 14:22:44 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "ICharacter.hpp"
+#include <iostream> // IWYU pragma: keep
 
 class ICharacter;
 

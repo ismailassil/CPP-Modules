@@ -6,11 +6,12 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 14:11:41 by iassil            #+#    #+#             */
-/*   Updated: 2024/07/02 09:37:19 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/17 09:13:03 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include <cstddef>
 
 const int	Character::SIZE = 4;
 const int	Character::bSIZE = 1024;

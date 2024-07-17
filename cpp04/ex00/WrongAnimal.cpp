@@ -17,19 +17,21 @@ WrongAnimal::WrongAnimal( void ) {
 	this->type = "Not Defined";
 }
 
-WrongAnimal::WrongAnimal( const WrongAnimal& wrongAnimal ) : type(wrongAnimal.type) {
+WrongAnimal::WrongAnimal( const WrongAnimal& other )
+	: type(other.type)
+{
 	std::cout << "WrongAnimal Copy Constructor Called" << std::endl;
 }
 
-WrongAnimal&	WrongAnimal::operator=( const WrongAnimal &wrongAnimal ) {
+WrongAnimal&	WrongAnimal::operator=( const WrongAnimal &other ) {
 	std::cout << "WrongAnimal Copy Assignment Operator Called" << std::endl;
-	if (this != &wrongAnimal)
-		this->type = wrongAnimal.type;
+	if (this != &other)
+		this->type = other.type;
 	return (*this);
 }
 
 WrongAnimal::~WrongAnimal( void ) {
-	std::cout << "WrongAnimal Desctructor Called" << std::endl;
+	std::cout << "WrongAnimal Destructor Called" << std::endl;
 }
 
 void	WrongAnimal::makeSound( void ) const {

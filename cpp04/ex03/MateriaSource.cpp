@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 11:02:53 by iassil            #+#    #+#             */
-/*   Updated: 2024/07/02 09:31:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/17 10:14:43 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void		MateriaSource::learnMateria(AMateria* other) {
 		return ;
 	for ( int i = 0; i < SIZE; i++ ) {
 		if (!src[i]) {
-			// delete other;
 			src[i] = other;
 			count++;
 			break ;

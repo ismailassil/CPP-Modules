@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 16:12:15 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/12 01:14:23 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ ScavTrap::ScavTrap( void ) {
 	this->m_attack_damage = 20;
 }
 
-ScavTrap::ScavTrap( const std::string name ) {
-	std::cout << "ScavTrap Constructor Called" << std::endl;
+ScavTrap::ScavTrap( const std::string name ) : ClapTrap(name) {
 	this->m_name = name;
 	this->m_health_points = 100;
 	this->m_energy_points = 50;
 	this->m_attack_damage = 20;
+	std::cout << "ScavTrap " + this->m_name + " Constructor Called" << std::endl;
 }
 
 ScavTrap::ScavTrap( const ScavTrap& scavTrap ) {

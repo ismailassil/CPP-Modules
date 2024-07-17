@@ -6,28 +6,20 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:42:22 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/25 17:23:14 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/17 09:56:20 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
-
-void	leaks(void) {
-	system("leaks animal");
-}
+#include "main.hpp" // IWYU pragma: keep
 
 int main( void ) {
-	atexit(leaks);
 	const Animal* meta = new Animal();
-	// Basically, a cat and a dog are animals
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	// and a animal is not a dog, that's why this is not OKAY
-	// const Cat* c = new Animal();
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
-	
+
 	i->makeSound(); // Will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
@@ -36,7 +28,7 @@ int main( void ) {
 	delete i;
 	delete meta;
 
-	std::cout << "==============WrongAnimal==============" << std::endl;
+	std::cout << "============== WrongAnimal ==============" << std::endl;
 	const WrongAnimal* w = new WrongAnimal();
 	const WrongAnimal* c = new WrongCat();
 	
@@ -49,8 +41,8 @@ int main( void ) {
 	delete w;
 	delete c;
 	
-	std::cout << "==============Brain==============" << std::endl;
-	const int		SIZE = 10;
+	std::cout << "============== Brain ==============" << std::endl;
+	const int		SIZE = 5;
 	const Animal	*a[SIZE];
 	for ( int e = 0; e < SIZE; e++ ) {
 		if (e >= SIZE / 2)

@@ -6,20 +6,17 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/11 15:42:22 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/25 17:23:37 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/17 09:51:02 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "main.hpp" // IWYU pragma: keep
 
-int main()
+int main( void )
 {
 	const Animal* meta = new Animal();
-	// Basically, a cat and a dog are animals
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	// and a animal is not a dog, that's why this is not OKAY
-	// const Cat* c = new Animal();
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
@@ -34,11 +31,10 @@ int main()
 
 	std::cout << "============================" << std::endl;
 	const WrongAnimal* w = new WrongAnimal();
-	const WrongAnimal* c = new WrongCat();
+	const WrongCat* c = new WrongCat();
 	
 	std::cout << w->getType() << " " << std::endl;
 	std::cout << c->getType() << " " << std::endl;
-	
 	w->makeSound();
 	c->makeSound();
 	

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/09 05:39:00 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/10 23:03:22 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class	ClapTrap {
 		int			m_attack_damage;
 	public:
 		ClapTrap( void ); // Default Constructor
-		ClapTrap( std::string name );
+		ClapTrap( std::string name ); // Parameteric Constructor
 		ClapTrap( const ClapTrap& target ); // Copy Constructor
 		ClapTrap&	operator=( const ClapTrap& target ); // Copy Assignment Operator
 		~ClapTrap( void ); // Deconstructor

@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 05:37:36 by iassil            #+#    #+#              #
-#    Updated: 2024/06/25 17:11:36 by iassil           ###   ########.fr        #
+#    Updated: 2024/07/14 23:02:34 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,25 @@ $(NAME): $(OBJ)
 	@$(CPP) $^ -o $@
 	@echo "$(GREEN)[ ✓ ] Executable file Compiled Successfully!$(RESET)"
 
-%.o: %.cpp $(HEADER)
+main.o: main.cpp main.hpp
+	@$(CPP) -c $< -o $@
+
+Animal.o: Animal.cpp Animal.hpp
+	@$(CPP) -c $< -o $@
+
+Cat.o: Cat.cpp Cat.hpp Brain.hpp Animal.hpp
+	@$(CPP) -c $< -o $@
+
+Dog.o: Dog.cpp Dog.hpp Brain.hpp Animal.hpp
+	@$(CPP) -c $< -o $@
+
+Brain.o: Brain.cpp Brain.hpp Animal.hpp
+	@$(CPP) -c $< -o $@
+
+WrongAnimal.o: WrongAnimal.cpp WrongAnimal.hpp
+	@$(CPP) -c $< -o $@
+
+WrongCat.o: WrongCat.cpp WrongCat.hpp WrongAnimal.hpp
 	@$(CPP) -c $< -o $@
 
 re: clean $(NAME)

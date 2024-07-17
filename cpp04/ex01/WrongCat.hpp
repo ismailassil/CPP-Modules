@@ -16,8 +16,8 @@
 class	WrongCat : public WrongAnimal {
 	public:
 		WrongCat( void ); // Default Constructor
-		WrongCat( const WrongCat& wrongCat ); // Copy Constructor
-		WrongCat&	operator=( const WrongCat &wrongCat ); // Copy Assignment Operator
+		WrongCat( const WrongCat& other ); // Copy Constructor
+		WrongCat&	operator=( const WrongCat &other ); // Copy Assignment Operator
 		~WrongCat( void ); // Destructor
 		void	makeSound( void ) const ;
 };

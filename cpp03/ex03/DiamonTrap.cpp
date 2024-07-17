@@ -6,12 +6,14 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 22:17:15 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/13 15:13:56 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamonTrap.hpp"
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap( void ) {
 	std::cout << "DiamondTrap Default Constructor Called" << std::endl;
@@ -21,13 +23,14 @@ DiamondTrap::DiamondTrap( void ) {
 	this->m_attack_damage = FragTrap::m_attack_damage;
 }
 
-DiamondTrap::DiamondTrap( std::string name ) {
-	std::cout << "DiamondTrap Constructor Called" << std::endl;
+DiamondTrap::DiamondTrap( std::string name )
+	: ClapTrap(name), ScavTrap(name), FragTrap(name) {
 	this->m_name = name;
 	ClapTrap::m_name = name + "_clap_name";
 	this->m_health_points = FragTrap::m_health_points;
 	this->m_energy_points = ScavTrap::m_energy_points;
 	this->m_attack_damage = FragTrap::m_attack_damage;
+	std::cout << "DiamondTrap " + this->m_name + " Constructor Called" << std::endl;
 }
 
 DiamondTrap::DiamondTrap( const DiamondTrap& diamonTrap ) {

@@ -17,20 +17,24 @@ WrongCat::WrongCat( void ) {
 	this->type = "Cat";
 }
 
-WrongCat::WrongCat( const WrongCat& wrongCat ) {
+WrongCat::WrongCat( const WrongCat& other )
+	: WrongAnimal(other)
+{
 	std::cout << "WrongCat Copy Constructor Called" << std::endl;
-	this->type = wrongCat.type;
+	this->type = other.type;
 }
 
-WrongCat&	WrongCat::operator=( const WrongCat &wrongCat ) {
+WrongCat&	WrongCat::operator=( const WrongCat &other ) {
 	std::cout << "WrongCat Copy Assignment Operator Called" << std::endl;
-	if (this != &wrongCat)
-		this->type = wrongCat.type;
+	if (this != &other) {
+		WrongAnimal::operator=(other);
+		this->type = other.type;
+	}
 	return (*this);
 }
 
 WrongCat::~WrongCat( void ) {
-	std::cout << "WrongCat Desctructor Called" << std::endl;
+	std::cout << "WrongCat Destructor Called" << std::endl;
 }
 
 void	WrongCat::makeSound( void ) const {

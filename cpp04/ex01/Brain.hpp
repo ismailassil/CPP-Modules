@@ -6,12 +6,12 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 15:41:35 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/25 15:44:48 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/13 14:21:17 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
+#include "Animal.hpp" // IWYU pragma: keep
 
 class	Brain {
 	protected:

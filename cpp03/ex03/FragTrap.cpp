@@ -6,11 +6,12 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 21:54:01 by iassil            #+#    #+#             */
-/*   Updated: 2024/06/11 15:57:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/07/12 01:14:09 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+#include "ClapTrap.hpp"
 
 FragTrap::FragTrap( void ) {
 	std::cout << "FrapTrap Default Constructor Called" << std::endl;
@@ -20,12 +21,12 @@ FragTrap::FragTrap( void ) {
 	this->m_attack_damage = 30;
 }
 
-FragTrap::FragTrap( const std::string name ) {
-	std::cout << "FragTrap Constructor Called" << std::endl;
+FragTrap::FragTrap( const std::string name ) : ClapTrap(name) {
 	this->m_name = name;
 	this->m_health_points = 100;
 	this->m_energy_points = 100;
 	this->m_attack_damage = 30;
+	std::cout << "FragTrap " + this->m_name + " Constructor Called" << std::endl;
 }
 
 FragTrap::FragTrap( const FragTrap& fragtrap ) {
