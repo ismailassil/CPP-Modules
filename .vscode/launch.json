@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/iassil/Desktop/cursus/cpp/cpp03/ex01",
-      "program": "/Users/iassil/Desktop/cursus/cpp/cpp03/ex01/build/Debug/outDebug"
+      "cwd": "/Users/iassil/Desktop/cursus/cpp/cpp04/ex03",
+      "program": "/Users/iassil/Desktop/cursus/cpp/cpp04/ex03/build/Debug/outDebug"
     }
   ]
 }

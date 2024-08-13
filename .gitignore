@@ -1,4 +1,3 @@
-.vscode
 *.o
 megaphone
 account
@@ -9,3 +8,4 @@ harlFilter
 fixed
 claptrap
 scavtrap
+.vscode

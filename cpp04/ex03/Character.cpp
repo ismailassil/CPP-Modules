@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 14:11:41 by iassil            #+#    #+#             */
-/*   Updated: 2024/07/17 09:13:03 by iassil           ###   ########.fr       */
+/*   Updated: 2024/08/13 03:29:50 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,10 @@ void	Character::equip(AMateria* m) {
 		return ;
 	}
 	if (index >= 0 && index <= 3) {
+		for ( int i = 0; i < index; i++ ) {
+			if (this->inventory[i] == m)
+				return ;
+		}
 		this->inventory[index] = m;
 		index++;
 	}
@@ -85,7 +89,7 @@ void	Character::equip(AMateria* m) {
 void	Character::unequip(int idx) {
 	if (idx < 0 || idx > 3 || idx > index)
 		return ;
-	this->gCollecter[counter] = this->inventory[idx];
+	this->gCollecter[counter++] = this->inventory[idx];
 	this->inventory[idx] = 0;
 	for ( int i = idx; i < index; i++ )
 		this->inventory[i] = this->inventory[i + 1];
