@@ -5,32 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/28 10:21:35 by iassil            #+#    #+#             */
-/*   Updated: 2024/08/13 03:35:33 by iassil           ###   ########.fr       */
+/*   Created: 2024/08/13 03:40:44 by iassil            #+#    #+#             */
+/*   Updated: 2024/08/13 04:14:03 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp" // IWYU pragma: keep
+#include <iostream> // IWYU pragma: keep
 
-int main( void ) {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+using std::string;
 
-	ICharacter* me = new Character("me");
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-
-	ICharacter* bob = new Character("bob");
-	me->use(0, *bob);
-	me->use(1, *bob);
-
-	delete bob;
-	delete me;
-	delete src;
-
-	return (0);
+int main( void )
+{
+	int *a = NULL;
+	try
+	{
+		a = new int[35555555555555];
+		throw std::exception();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "Everything is good" << std::endl;
+	if (a != NULL)
+		delete a;
 }
