@@ -6,27 +6,28 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:40:44 by iassil            #+#    #+#             */
-/*   Updated: 2024/08/13 04:14:03 by iassil           ###   ########.fr       */
+/*   Updated: 2024/08/13 06:17:44 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream> // IWYU pragma: keep
+#include "Bureaucrat.hpp"
 
-using std::string;
+int main( void ) {
+	try {
+		Bureaucrat b1("Alice", 50);
+		Bureaucrat b2("Bob", 150);
+		
+		std::cout << b1 << std::endl;
+		std::cout << b2 << std::endl;
 
-int main( void )
-{
-	int *a = NULL;
-	try
-	{
-		a = new int[35555555555555];
-		throw std::exception();
+		b1.incrementGrade();
+		b2.decrementGrade();
+
+	} catch (const Bureaucrat::GradeTooHighException& e) {
+		std::cerr << "Exception caught: " << e.what() << std::endl;
+	} catch (const Bureaucrat::GradeTooLowException& e) {
+		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
-	catch (const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	std::cout << "Everything is good" << std::endl;
-	if (a != NULL)
-		delete a;
+
+	return (0);
 }
