@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:40:37 by iassil            #+#    #+#             */
-/*   Updated: 2024/08/14 04:13:05 by iassil           ###   ########.fr       */
+/*   Updated: 2024/08/14 04:24:06 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,14 @@ void	Bureaucrat::decrementGrade( void ) {
 }
 /////////////////////////////////////////////////////////////////////////////
 
+/////////////////////////////////////////////////////////////////////////////
+void	Bureaucrat::signForm( const Form& other ) {
+	if (other.getSign())
+		cout << this->getName() + " signed " + other.getName() << endl;
+	else
+		cout << this->getName() + " couldn't sign " + other.getName() + " because " << endl; // TODO: <reason>
+}
+/////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////////////////
 std::ostream& operator<<( std::ostream& out, const Bureaucrat& obj ) {

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 03:40:39 by iassil            #+#    #+#             */
-/*   Updated: 2024/08/14 04:17:28 by iassil           ###   ########.fr       */
+/*   Updated: 2024/08/14 04:20:27 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 #include <exception>
 #include <iostream> // IWYU pragma: keep
 #include <ostream>
+#include "Form.hpp"
 
 using std::string;
+using std::cout;
+using std::endl;
 using std::exception;
+
+class Form;
 
 class Bureaucrat {
 	private:
@@ -46,6 +51,8 @@ class Bureaucrat {
 			public:
 				virtual const char* what() const throw();
 		};
+
+		void	signForm( const Form& other );
 };
 
 std::ostream& operator<<( std::ostream& out, const Bureaucrat& obj );
