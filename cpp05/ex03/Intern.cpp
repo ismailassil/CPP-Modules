@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 12:10:50 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 20:39:23 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 11:13:39 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,12 @@ AForm*	Intern::makeForm(const std::string& formName, const std::string& target) 
 
 Intern::Intern() { }
 
-Intern::Intern( const Intern& obj ) { }
+Intern::Intern( const Intern& obj ) {
+	(void)obj;
+}
 
 Intern& Intern::operator=(const Intern& obj ) {
+	(void)obj;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:38 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 20:37:13 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 12:22:52 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class Bureaucrat {
 	private:
 		const std::string	name;
-		int				grade;
+		int					grade;
 	
 	public:
 		Bureaucrat();

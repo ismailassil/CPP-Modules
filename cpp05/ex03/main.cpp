@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:36 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 19:45:54 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 12:22:33 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int	main() {
 	Intern someRandomIntern;
-	AForm* rrf;
+	AForm* rrf = NULL;
 
 	try {
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 	}
 	catch (std::exception& e) {
 		std::cout << "Error: " << e.what() << std::endl;

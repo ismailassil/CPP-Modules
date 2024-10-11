@@ -6,17 +6,16 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 10:43:59 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/10 10:56:51 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 10:14:25 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <exception>
 
 int main ( int ac, char **av ) {
 	if (ac != 2) {
 		std::cerr << "Too many Arguments. Please provide one argument!" << std::endl;
-		return (1);
+		return ( 1 );
 	}
 	try {
 		ScalarConverter::converter(av[1]);

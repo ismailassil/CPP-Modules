@@ -6,19 +6,14 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 19:32:51 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/10 10:56:30 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 10:16:06 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstddef>
-#include <ctime>
-#include <cstdlib>
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
-#include <exception>
-#include <iostream>
 
 Base*	generate(void) {
 	srand(time(NULL));

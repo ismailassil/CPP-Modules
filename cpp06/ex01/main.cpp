@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 18:55:24 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/03 20:27:29 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 10:15:04 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int main( void ) {
 	if (&originalData == deserializedData) {
 		std::cout << "\nSerialization and Deserialization successful!" << std::endl;
 
-		// Print the deserialized data to verify it's the same
 		std::cout << "Deserialized Data:" << std::endl;
 		std::cout << "\tInteger Value:\t" << deserializedData->ivalue << std::endl;
 		std::cout << "\tFloat Value:\t" << deserializedData->fvalue << std::endl;

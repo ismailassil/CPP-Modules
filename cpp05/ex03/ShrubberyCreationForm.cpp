@@ -6,12 +6,13 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 18:43:03 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 20:38:57 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 11:29:15 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
+#include <unistd.h>
 
 int ShrubberyCreationForm::sign = 145;
 int ShrubberyCreationForm::exec = 137;
@@ -40,7 +41,7 @@ void	ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 	else if ( !this->getIsSigned() )
 		throw AForm::FormNotSignedException();
 	std::fstream file; file.open((target + "_shrubbery").c_str(), std::fstream::out);
-	if (!file) {
+	if (!file.is_open()) {
 		std::cerr << "Error Opening the file" << std::endl;
 		return ;
 	}

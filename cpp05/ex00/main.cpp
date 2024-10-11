@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:36 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 18:38:04 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 11:02:51 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main( void ) {
 		Bureaucrat b2("Bob", 150);
 
 		std::cout << b2 << std::endl;
-
+		
 		b2.decrementGrade();
 
 	} catch (const Bureaucrat::GradeTooHighException& e) {
