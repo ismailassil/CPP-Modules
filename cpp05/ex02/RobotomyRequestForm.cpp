@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 18:43:09 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 20:38:19 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 16:25:53 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm& obj )
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& obj ) {
 	if ( &obj == this )
 		return ( *this );
+	AForm::operator=(obj);
 	target = obj.target;
 	return ( *this );
 }

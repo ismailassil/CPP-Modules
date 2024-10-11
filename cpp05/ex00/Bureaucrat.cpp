@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:40 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/11 10:56:12 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 16:05:24 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 	: name(obj.name), grade(obj.grade) { }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {	
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 	if (&obj == this)
 		return ( *this );
 	(std::string)this->name = obj.getName();

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 18:43:10 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 20:38:57 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 16:26:04 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& ob
 PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& obj ) {
 	if ( &obj == this )
 		return ( *this );
+	AForm::operator=(obj);
 	target = obj.target;
 	return ( *this );
 }
