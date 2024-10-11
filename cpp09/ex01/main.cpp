@@ -5,37 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 09:28:36 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 18:38:59 by iassil           ###   ########.fr       */
+/*   Created: 2024/10/05 11:35:29 by iassil            #+#    #+#             */
+/*   Updated: 2024/10/05 13:59:53 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include <exception>
+#include "RPN.hpp"
 
-int main( void ) {
-	try {
-		Form a1("Ismail", 13, 15);
-		Bureaucrat b1("Assil", 19);
-
-		a1.beSigned(b1);
-		std::cout << a1 << std::endl;
-	} catch (std::exception& e) {
-		std::cerr << "Exception caught: " << e.what() << std::endl;
+int main( int ac, char** av ) {
+	if ( ac != 2 ) {
+		std::cerr << "Error: Enter 2 arguments" << std::endl;
+		return ( 1 );
 	}
 
-	std::cout << "==============\n";
-
 	try {
-		Form a1("Ismail", 19, 20);
-		Bureaucrat b1("Assil", 19);
-		a1.beSigned(b1);
+		
+		RPN a;
+		a.doMath(av[1]);
 
-		std::cout << a1 << std::endl;
-		b1.signForm(a1);
-	} catch (std::exception& e) {
-		std::cerr << "Exception caught: " << e.what() << std::endl;
+	} catch ( const char* e ) {
+
+		std::cerr << e << std::endl;
+
 	}
-	return (0);
+	
+	return ( 0 );
 }

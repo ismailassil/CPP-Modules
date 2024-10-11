@@ -6,36 +6,22 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:36 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 18:38:59 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/02 19:45:54 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include <exception>
+#include "AForm.hpp"
+#include "Intern.hpp"
 
-int main( void ) {
-	try {
-		Form a1("Ismail", 13, 15);
-		Bureaucrat b1("Assil", 19);
-
-		a1.beSigned(b1);
-		std::cout << a1 << std::endl;
-	} catch (std::exception& e) {
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
-
-	std::cout << "==============\n";
+int	main() {
+	Intern someRandomIntern;
+	AForm* rrf;
 
 	try {
-		Form a1("Ismail", 19, 20);
-		Bureaucrat b1("Assil", 19);
-		a1.beSigned(b1);
-
-		std::cout << a1 << std::endl;
-		b1.signForm(a1);
-	} catch (std::exception& e) {
-		std::cerr << "Exception caught: " << e.what() << std::endl;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	}
-	return (0);
+	catch (std::exception& e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	delete rrf;
 }

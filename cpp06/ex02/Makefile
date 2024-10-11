@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 09:26:41 by iassil            #+#    #+#              #
-#    Updated: 2024/10/01 12:54:04 by iassil           ###   ########.fr        #
+#    Updated: 2024/10/03 20:00:45 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ CPP		=	c++
 CPP		+=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
-NAME	=	Form
-SRC		=	main.cpp	Bureaucrat.cpp		Form.cpp
-HEADER	=	Bureaucrat.hpp	Form.hpp
+NAME	=	dynamic_cast
+SRC		=	Base.cpp		main.cpp
+HEADER	=	Base.hpp		A.hpp	B.hpp	C.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/13 03:40:42 by iassil            #+#    #+#              #
-#    Updated: 2024/08/13 05:31:39 by iassil           ###   ########.fr        #
+#    Created: 2024/10/01 09:26:41 by iassil            #+#    #+#              #
+#    Updated: 2024/10/01 10:37:12 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CPP		+=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
 NAME	=	Bureaucrat
-SRC		=	Bureaucrat.cpp	main.cpp
+SRC		=	main.cpp	Bureaucrat.cpp
 HEADER	=	Bureaucrat.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
@@ -27,7 +27,9 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN)[ ✓ ] Executable file Compiled Successfully!$(RESET)"
 
 %.o: %.cpp $(HEADER)
+	@echo "$(YELLOW)[ ~ ] Compilation of the Objects files...$(RESET)"
 	@$(CPP) -c $< -o $@
+	@echo "$(GREEN)[ ✓ ] Executable file Compiled Successfully!$(RESET)"
 
 re: clean $(NAME)
 

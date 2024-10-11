@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 09:26:41 by iassil            #+#    #+#              #
-#    Updated: 2024/10/01 12:54:04 by iassil           ###   ########.fr        #
+#    Updated: 2024/10/04 17:50:46 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,9 @@ CPP		=	c++
 CPP		+=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
-NAME	=	Form
-SRC		=	main.cpp	Bureaucrat.cpp		Form.cpp
-HEADER	=	Bureaucrat.hpp	Form.hpp
+NAME	=	mutant_stack
+SRC		=	main.cpp
+HEADER	=	MutantStack.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)

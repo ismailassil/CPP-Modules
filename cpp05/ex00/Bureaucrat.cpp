@@ -5,86 +5,69 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 03:40:37 by iassil            #+#    #+#             */
-/*   Updated: 2024/08/14 04:13:05 by iassil           ###   ########.fr       */
+/*   Created: 2024/10/01 09:28:40 by iassil            #+#    #+#             */
+/*   Updated: 2024/10/02 20:37:13 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-/////--------------------------------------------------------------------/////
-const char * Bureaucrat::GradeTooHighException::what() const throw() {
-	return ( "Grade too Hight" );
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+	return ( "Grade too high!" );
 }
 
-const char * Bureaucrat::GradeTooLowException::what() const throw() {
-		return ( "Grade too Low" );
+const char*	Bureaucrat::GradeTooLowException::what() const throw() {
+	return ( "Grade too low!" );
 }
-/////--------------------------------------------------------------------/////
-/////--------------------------------------------------------------------/////
 
-/////--------------------------------------------------------------------/////
-Bureaucrat::Bureaucrat( const string& name, int grade ) : name(name) {
+Bureaucrat::Bureaucrat()
+	: name("Unknown"), grade(13) { }
+
+Bureaucrat::Bureaucrat(const Bureaucrat& obj)
+	: name(obj.name), grade(obj.grade) { }
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {	
+	if (&obj == this)
+		return ( *this );
+	(std::string)this->name = obj.getName();
+	this->grade = obj.getGrade();
+	return ( *this );
+}
+
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : name(name) {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	else
-		this->grade = grade;
-}
-/////--------------------------------------------------------------------/////
-/////--------------------------------------------------------------------/////
-
-
-/////--------------------------------------------------------------------/////
-Bureaucrat::Bureaucrat() : name("Unknown"), grade(75) { }
-
-Bureaucrat::Bureaucrat( const Bureaucrat& other )
-	: name(other.name), grade(other.grade) { }
-
-Bureaucrat& Bureaucrat::operator=( const Bureaucrat& other ) {
-	if ( this == &other )
-		return ( *this );
-	this->grade = other.getGrade();
-	return ( *this );
+	this->grade = grade;
 }
 
 Bureaucrat::~Bureaucrat() { }
-/////--------------------------------------------------------------------/////
-/////--------------------------------------------------------------------/////
 
-
-/////////////////////////////////////////////////////////////////////////////
-const string	Bureaucrat::getName( void ) const {
-	return (this->name);
+const std::string	Bureaucrat::getName() const {
+	return ( this->name );
 }
 
-int	Bureaucrat::getGrade( void ) const {
-	return (this->grade);
+int		Bureaucrat::getGrade() const {
+	return ( this->grade );
 }
-/////////////////////////////////////////////////////////////////////////////
 
-
-/////////////////////////////////////////////////////////////////////////////
-void	Bureaucrat::incrementGrade( void ) {
-	this->grade--;
-	if (this->grade <= 0) {
-		this->grade++;
-		throw Bureaucrat::GradeTooHighException();
-	}
-}
-void	Bureaucrat::decrementGrade( void ) {
+void	Bureaucrat::decrementGrade() {
 	this->grade++;
-	if (this->grade >= 151) {
+	if (this->grade > 150) {
 		this->grade--;
 		throw Bureaucrat::GradeTooLowException();
 	}
 }
-/////////////////////////////////////////////////////////////////////////////
 
+void	Bureaucrat::incrementGrade() {
+	this->grade--;
+	if (this->grade < 1) {
+		this->grade++;
+		throw Bureaucrat::GradeTooHighException();
+	}
+}
 
-/////////////////////////////////////////////////////////////////////////////
 std::ostream& operator<<( std::ostream& out, const Bureaucrat& obj ) {
 	return (out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".");
 }
-/////////////////////////////////////////////////////////////////////////////

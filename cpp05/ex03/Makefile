@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 09:26:41 by iassil            #+#    #+#              #
-#    Updated: 2024/10/01 12:54:04 by iassil           ###   ########.fr        #
+#    Updated: 2024/10/02 12:41:29 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,12 @@ CPP		=	c++
 CPP		+=	-Wall -Wextra -Werror -std=c++98
 RM		=	rm -f
 
-NAME	=	Form
-SRC		=	main.cpp	Bureaucrat.cpp		Form.cpp
-HEADER	=	Bureaucrat.hpp	Form.hpp
+NAME	=	Intern
+SRC		=	AForm.cpp					PresidentialPardonForm.cpp		ShrubberyCreationForm.cpp		\
+			Bureaucrat.cpp				RobotomyRequestForm.cpp			Intern.cpp						\
+			main.cpp
+HEADER	=	AForm.hpp					Bureaucrat.hpp					PresidentialPardonForm.hpp		\
+			RobotomyRequestForm.hpp		ShrubberyCreationForm.hpp		Intern.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)
