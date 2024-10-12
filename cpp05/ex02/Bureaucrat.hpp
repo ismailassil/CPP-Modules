@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:38 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/11 12:23:08 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 19:03:47 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Bureaucrat {
 		~Bureaucrat();
 
 		const std::string	getName() const ;
-		int				getGrade() const ;
+		int					getGrade() const ;
 
 		void	incrementGrade();
 		void	decrementGrade();
@@ -44,7 +44,7 @@ class Bureaucrat {
 				const char*	what() const throw();
 		};
 
-		void	signForm( const AForm& AForm ) const ;
+		void	signForm( AForm& AForm ) const ;
 		void	executeForm( AForm const & form ) const ;
 };
 

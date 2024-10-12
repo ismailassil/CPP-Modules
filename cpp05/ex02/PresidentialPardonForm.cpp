@@ -6,12 +6,11 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 18:43:10 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/11 16:25:39 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 18:48:09 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-#include "AForm.hpp"
 
 int PresidentialPardonForm::sign = 25;
 int PresidentialPardonForm::exec = 5;

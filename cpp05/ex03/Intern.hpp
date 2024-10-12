@@ -6,13 +6,15 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 12:02:54 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 20:39:23 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 18:48:55 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "AForm.hpp"
-#include <exception>
+#include "ShrubberyCreationForm.hpp" // IWYU pragma: keep
+#include "RobotomyRequestForm.hpp" // IWYU pragma: keep
+#include "PresidentialPardonForm.hpp" // IWYU pragma: keep
 
 class AForm;
 

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:40 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 20:37:31 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 19:02:09 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,12 @@ void	Bureaucrat::incrementGrade() {
 	}
 }
 
-void	Bureaucrat::signForm( const Form& form ) const {
+void	Bureaucrat::signForm( Form& form ) const {
 	if (form.getIsSigned()) {
-		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+		std::cout << form.getName() << " already signed" << std::endl;
 	} else {
-		std::cout << this->getName() << " couldn't sign " << form.getName() << " because ";
-		if (form.getGradeReqSignIt() > this->grade)
-			std::cout << this->getName() << " grade is too Low!" << std::endl;
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
 }
 

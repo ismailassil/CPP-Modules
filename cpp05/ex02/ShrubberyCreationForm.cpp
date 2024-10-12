@@ -6,12 +6,11 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 18:43:03 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/11 16:28:22 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 18:37:01 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
-#include <fstream>
 
 int ShrubberyCreationForm::sign = 145;
 int ShrubberyCreationForm::exec = 137;

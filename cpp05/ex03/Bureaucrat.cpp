@@ -6,12 +6,11 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:40 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 20:39:23 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 19:03:30 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include <exception>
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return ( "Grade too high!" );
@@ -69,13 +68,12 @@ void	Bureaucrat::incrementGrade() {
 	}
 }
 
-void	Bureaucrat::signForm( const AForm& AForm ) const {
-	if (AForm.getIsSigned()) {
-		std::cout << this->getName() << " signed " << AForm.getName() << std::endl;
+void	Bureaucrat::signForm( AForm& form ) const {
+	if (form.getIsSigned()) {
+		std::cout << form.getName() << " already signed" << std::endl;
 	} else {
-		std::cout << this->getName() << " couldn't sign " << AForm.getName() << " because ";
-		if (AForm.getGradeReqSignIt() > this->grade)
-			std::cout << this->getName() << " grade is too Low!" << std::endl;
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
 	}
 }
 

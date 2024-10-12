@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:38 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/11 16:09:19 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 19:02:23 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Bureaucrat {
 		Bureaucrat();
 		Bureaucrat( const std::string& name, int grade ); // Parametric Constructor
 		Bureaucrat( const Bureaucrat& obj );
-		Bureaucrat& operator=(const Bureaucrat& obj );
+		Bureaucrat& operator=( const Bureaucrat& obj );
 		~Bureaucrat();
 		
 		const std::string	getName() const ;
@@ -44,7 +44,7 @@ class Bureaucrat {
 				const char*	what() const throw();
 		};
 
-		void	signForm( const Form& form ) const ;
+		void	signForm( Form& form ) const ;
 };
 
 std::ostream&	operator<<( std::ostream& out, const Bureaucrat& obj );

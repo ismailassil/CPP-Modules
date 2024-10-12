@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 09:28:36 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/02 18:41:43 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 19:07:49 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,23 @@ int	main() {
 	try {
 		{
 			sClass("Shrubbery Creation");
-			ShrubberyCreationForm form("home");
+			ShrubberyCreationForm	form("home");
 			testForm(burro, form);
 		}
 		{
 			sClass("Robotomy Request");
-			Bureaucrat	selmo("selmo", 1);
-			RobotomyRequestForm form("Bender");
+			Bureaucrat			selmo("selmo", 1);
+			RobotomyRequestForm	form("Bender");
 			testForm(selmo, form);
 		}
 		{
 			sClass("Presidential Pardon");
-			PresidentialPardonForm form("lrocca");
+			PresidentialPardonForm	form("lrocca");
 			testForm(burro, form);
 		}
-		PresidentialPardonForm form("lrocca");
+
+		PresidentialPardonForm	form("lrocca");
+
 		{
 			sClass("execute unsigned form");
 			std::cout << form << '\n';

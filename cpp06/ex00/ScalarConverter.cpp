@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 08:34:37 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/10 18:20:31 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/12 10:16:57 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,25 @@ void	ScalarConverter::converter( const std::string& input ) {
 			break;
 		}
 		case NOTHING: {
-			throw ScalarConverter::InvalidArguemntException();
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: impossible" << std::endl;
+			std::cout << "double: impossible" << std::endl;
 			break;
 		}
 	}
+}
+
+bool	isDec( const double& c ) {
+	std::stringstream ss;
+	ss << c;
+	std::string str(ss.str());
+
+	for ( size_t i = 0; i < str.length(); i++ ) {
+		if ( str[i] == '.' )
+			return ( true );
+	}
+	return ( false );
 }
 
 void	ScalarConverter::print( const char& c ) {
@@ -133,7 +148,7 @@ void	ScalarConverter::print( const int& c ) {
 }
 
 void	ScalarConverter::print( const float& c ) {
-	if (std::isprint(c))
+	if (std::isprint(c) && !isDec(c))
 		std::cout << "char: '" << static_cast<char>(c) << '\'' << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
@@ -143,7 +158,7 @@ void	ScalarConverter::print( const float& c ) {
 }
 
 void	ScalarConverter::print( const double& c ) {
-	if (std::isprint(c))
+	if (std::isprint(c) && !isDec(c))
 		std::cout << "char: '" << static_cast<char>(c) << '\'' << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;

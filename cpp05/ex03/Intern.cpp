@@ -6,14 +6,11 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 12:10:50 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/11 16:38:43 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/11 18:48:40 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 
 const std::string	Intern::formNames[] = {
 		"shrubbery creation",
@@ -23,12 +20,11 @@ const std::string	Intern::formNames[] = {
 
 const size_t		Intern::numForms = 3;
 
-std::string	stringIgnoreCases(const std::string& s1) {
+std::string	stringIgnoreCases( const std::string& s1 ) {
 	std::string str = s1;
 
 	for ( int i = 0; i < (int)s1.length(); i++ ) {
-		if (s1.at(i) >= 'A' && s1.at(i) <= 'Z')
-			str[i] = str[i] - 32;
+		str[i] = std::tolower(s1[i]);
 	}
 	return ( str );
 }

@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 19:32:51 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/11 10:16:06 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/12 14:09:49 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include "C.hpp"
 
 Base*	generate(void) {
-	srand(time(NULL));
 	int num = rand();
+	std::cout << "num: " << num << std::endl;
 	
 	if (num % 2 == 0 && num % 3 == 0)
 		return (new A());
@@ -65,6 +65,8 @@ void	identify(Base &p) {
 }
 
 int main( void ) {
+	srand(time(NULL));
+
 	Base*	base_ptr_0 = generate();
 	Base*	base_ptr_1 = generate();
 
@@ -73,7 +75,7 @@ int main( void ) {
 
 	identify(*base_ptr_0);
 	identify(*base_ptr_1);
-	
+
 	delete base_ptr_0;
 	delete base_ptr_1;
 
