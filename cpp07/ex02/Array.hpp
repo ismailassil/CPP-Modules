@@ -6,34 +6,33 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 07:45:06 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/04 10:12:25 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/14 12:02:53 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <cstddef>
 #include <exception>
-#include <sys/_types/_u_int.h>
 
 template <typename T>
 class Array {
 	private:
-		u_int	length;
+		size_t	length;
 		T*		arr;
 
 	public:
 		Array( void ) : length(0) {
 			arr = NULL;
 		}
-		Array( u_int n ) : length(n) {
+		Array( size_t n ) : length(n) {
 			arr = new T[n];
-			for ( u_int i = 0; i < n; i++ )
+			for ( size_t i = 0; i < n; i++ )
 				arr[i] = T();
 		}
 		Array( const Array& obj ) {
 			length = obj.size();
 			arr = new T[length];
-			for ( u_int i = 0; i < length; i++ )
+			for ( size_t i = 0; i < length; i++ )
 				arr[i] = obj.arr[i];
 		}
 		Array& operator=( const Array& obj ) {
@@ -42,7 +41,7 @@ class Array {
 			delete[] arr;
 			length = obj.size();
 			arr = new T[length];
-			for ( u_int i = 0; i < length; i++ )
+			for ( size_t i = 0; i < length; i++ )
 				arr[i] = obj.arr[i];
 			return ( *this );
 		}
@@ -50,17 +49,17 @@ class Array {
 			delete[] arr;
 		}
 		
-		u_int	size( void ) const {
+		size_t	size( void ) const {
 			return (length);
 		}
 
-		T& operator[] (u_int index) {
+		T& operator[] ( size_t index ) {
 			if (index < 0 || index >= length)
 				throw Array::IndexOutOfBoundException();
 			return (arr[index]);
 		}
 
-		const T& operator[] (u_int index) const {
+		const T& operator[] ( size_t index ) const {
 			if (index < 0 || index >= length)
 				throw Array::IndexOutOfBoundException();
 			

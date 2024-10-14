@@ -1,86 +1,78 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/14 11:45:39 by iassil            #+#    #+#             */
+/*   Updated: 2024/10/14 12:09:44 by iassil           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <exception>
 #include <iostream>
 #include <cstdlib>
+#include <string>
 #include "Array.hpp"
 
-#define MAX_VAL 750
+#define VAL 300
 
-int main( int, char** )
-{
-	Array<int> numbers(MAX_VAL);
-	int* mirror = new int[MAX_VAL];
-	
+void leaks() {
+	system("leaks array");
+}
+
+int main ( void ) {
+
+	// atexit(leaks);
+
+	Array<int> a(VAL);
+	Array<std::string> s;
+
+	try {
+		s[0] = "Hi";
+	} catch ( const std::exception& e ) {
+		std::cout << "Error: " << e.what() << "\n";
+	}
+
 	srand(time(NULL));
 
-	for (int i = 0; i < MAX_VAL; i++) {
-		const int value = rand();
-		numbers[i] = value;
-		mirror[i] = value;
+	for ( int i = 0; i < VAL; i++ ) {
+		a[i] = rand();
 	}
-	{
-		Array<int> tmp;
-		try {
-			for (int i = 0; i < MAX_VAL + 1; i++) {
-				std::cout << "tmp[" << i << "]:\t" << tmp[i] << std::endl;
-			}
-		} catch(const std::exception& e) {
-			std::cerr << e.what() << '\t';
-			std::cerr << "You tried to access past the last element of the array" << std::endl;
-		}
-		tmp = numbers;
-		Array<int> test(tmp);
+	const Array<int> b = a;
 
-		try {
-			for (int i = 0; i < MAX_VAL + 1; i++) {
-				if (tmp[i] != test[i])
-				{
-					std::cerr << "didn't save the same value!!" << std::endl;
-					return 1;
-				}
-				// std::cout << "tmp[" << i << "]:\t" << tmp[i] << std::endl; //uncomment these two lines to see the arrays have the same values
-				// std::cout << "test[" << i << "]:\t" << test[i] << std::endl;
-			}
-		} catch(const std::exception& e) {
-			std::cerr << e.what() << '\t';
-			std::cerr << "You tried to access past the last element of the array" << std::endl;
-		}
-
-		std::cout << std::endl << "test[1]:\t" << test[1] << std::endl;
-		std::cout << "tmp[1]:\t\t" << tmp[1] << std::endl << std::endl;
-
-		test[1] = 123456789;
-
-		std::cout << "test[1]:\t" << test[1] << std::endl;
-		std::cout << "tmp[1]:\t\t" << tmp[1] << std::endl << std::endl;
-	}
-
-	for (int i = 0; i < MAX_VAL; i++) {
-		if (mirror[i] != numbers[i]) {
-			std::cerr << "didn't save the same value!!" << std::endl;
-			return 1;
-		}
-	}
-
-	try {
-		numbers[-2] = 0;
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
-		// std::cout << "index was -2" << std::endl;
-	}
-
-	try {
-		numbers[MAX_VAL] = 0;
-	} catch(const std::exception& e) {
-		std::cerr << e.what() << '\n';
-		// std::cout << "tried to access past the last element of the array" << std::endl;
-	}
-
-	for (int i = 0; i < MAX_VAL; i++) {
-		numbers[i] = rand();
-	}
-	delete [] mirror;
-	// for (int i = 0; i < MAX_VAL; i++)
-	// {
-	//     std::cout << numbers[i] << std::endl;
+	// for ( int i = 0; i < VAL; i++ ) {
+		// std::cout << a[i] << ' ';
 	// }
-	return 0;
+	// std::cout << "\n";
+
+	// b[0] = 1;
+
+	const int i = a[0];
+	int j = b[0];
+
+	std::cout << "a[0]: " << a[0] << " i: " << i << std::endl;
+	std::cout << "b[0]: " << b[0] << " j: " << j << std::endl;
+	std::cout << "\n";
+
+	a[0] = 12;
+	j = 1294812;
+	std::cout << "a[0]: " << a[0] << " i: " << i << std::endl;
+	std::cout << "b[0]: " << b[0] << " j: " << j << std::endl;
+	std::cout << "\n";
+
+	try {
+		a[-2] = 1;
+	} catch ( const std::exception& e ) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+
+	try {
+		a[VAL] = 1;
+	} catch ( const std::exception& e ) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+
+	return ( 0 );
 }

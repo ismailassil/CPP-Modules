@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 09:26:41 by iassil            #+#    #+#              #
-#    Updated: 2024/10/04 07:23:08 by iassil           ###   ########.fr        #
+#    Updated: 2024/10/14 11:35:52 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ RM		=	rm -f
 
 NAME	=	function_templates
 SRC		=	main.cpp
-HEADER	=	templates.hpp
+HEADER	=	whatever.hpp
 OBJ		=	$(SRC:.cpp=.o)
 
 all: $(NAME)

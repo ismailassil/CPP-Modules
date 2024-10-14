@@ -6,16 +6,17 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 07:31:45 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/04 07:43:10 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/14 11:38:44 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <cstddef>
 
 template <typename T, typename F>
-void	iter( T arr[], int n, F func ) {
+void	iter( T& arr, size_t n, F func ) {
 	
-	for ( int i = 0; i < n; i++ ) {
+	for ( size_t i = 0; i < n; i++ ) {
 		func(arr[i]);
 	}
 	
