@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 09:37:54 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/04 10:39:53 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/15 16:47:26 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,53 +37,60 @@ int main( void ) {
     st.insert(12);
 
 	std::cout << "vec = {1, 2, 3, 4, 5}" << std::endl;
+	std::cout << "======================\n";
 	try {
 		std::vector<int>::iterator it = easyfind(vec, 5);
 		(void)it;
 		std::cout << "The Occurrence is found!" << std::endl;
 	} catch (std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
-	
+
+	std::cout << "======================\n";
 	try {
-		std::vector<int>::iterator it = easyfind(vec, -1);
+		const std::vector<int>::iterator it = easyfind(vec, -1);
 		(void)it;
 		std::cout << "The Occurrence is found!" << std::endl;
 	} catch (std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
-	
+
 	std::cout << "\nlst = {6, 7, 8, 9}" << std::endl;
+	std::cout << "======================\n";
 	try {
 		std::list<int>::iterator it = easyfind(lst, 6);
 		(void)it;
 		std::cout << "The Occurrence is found!" << std::endl;
 	} catch (std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	
+	std::cout << "======================\n";
 	try {
-		std::list<int>::iterator it = easyfind(lst, 2);
+		const std::list<int>::iterator it = easyfind(lst, 2);
 		(void)it;
 		std::cout << "The Occurrence is found!" << std::endl;
 	} catch (std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	
 	std::cout << "\nst = {10, 11, 12}" << std::endl;
+	std::cout << "======================\n";
 	try {
 		std::set<int>::iterator it = easyfind(st, 12);
 		(void)it;
 		std::cout << "The Occurrence is found!" << std::endl;
 	} catch (std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
+	
+	std::cout << "======================\n";
 	try {
-		std::set<int>::iterator it = easyfind(st, 0);
+		const std::set<int>::iterator it = easyfind(st, 0);
 		(void)it;
 		std::cout << "The Occurrence is found!" << std::endl;
 	} catch (std::exception& e) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 
 	return ( 0 );

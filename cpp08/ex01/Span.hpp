@@ -6,23 +6,23 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 11:04:54 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/04 13:08:09 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/15 17:22:20 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <exception>
-#include <sys/_types/_u_int.h>
 #include <vector>
+#include <iostream> // IWYU pragma: keep
 
 class Span {
 	private:
 		std::vector<int>	vec;
-		u_int				max_size;
+		uint				max_size;
 		Span();
 
 	public:
-		Span( u_int n );
+		Span( uint n );
 		Span( const Span& );
 		Span& operator=( const Span& );
 		~Span();
@@ -32,14 +32,17 @@ class Span {
 
 		template <typename Iterator>
 		void	addNumbers( const Iterator& first, const Iterator& last ) {
-			u_int	length = std::distance(first, last);
+			uint	length = std::distance(first, last);
+
 			if ( length + vec.size() > max_size )
 				throw Span::NotEnoughSpaceException();
-			vec.insert(vec.end(), first, last);
+
+			vec.insert( vec.end(), first, last );
+
 		}
 
-		u_int	shortestSpan( void );
-		u_int	longestSpan( void );
+		uint	shortestSpan( void );
+		uint	longestSpan( void );
 
 		class SpanFullException : public std::exception {
 			public:

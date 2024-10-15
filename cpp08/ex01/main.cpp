@@ -6,16 +6,14 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 12:50:41 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/04 13:02:41 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/15 17:19:18 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <vector>
 #include "Span.hpp"
 
 int main() {
-	Span sp = Span(5);
+	Span sp(5);
 	
 	try {
 		sp.addNumber(6);
@@ -23,14 +21,17 @@ int main() {
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-	} catch (std::exception& e) {
+	} catch ( const std::exception& e ) {
 		std::cout << "Error: " << e.what() << std::endl;
 	}
-	
-	sp.printSpan();
 
-	std::cout << sp.shortestSpan() << std::endl;
-	std::cout << sp.longestSpan() << std::endl;
+	std::cout << "sp span: ";
+	sp.printSpan();
+	std::cout << "\n";
+
+	std::cout << "shortest span: " << sp.shortestSpan() << std::endl;
+	std::cout << "longest span: " << sp.longestSpan() << std::endl;
+	std::cout << "\n";
 
 	std::vector<int> numsToAdd;
 	numsToAdd.push_back(4);
@@ -41,13 +42,23 @@ int main() {
 	numsToAdd.push_back(9);
 
 	try {
-		sp.addNumbers(numsToAdd.begin(), numsToAdd.end());
-	} catch (const std::exception& e) {
-		std::cout << e.what() << std::endl;
+		sp.addNumbers( numsToAdd.begin(), numsToAdd.end() );
+	} catch ( const std::exception& e ) {
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 
+	std::cout << "sp span: ";
 	sp.printSpan();
-	std::cout.flush();
+
+	Span a(10);
+
+	try {
+		a.addNumbers( numsToAdd.begin(), numsToAdd.end() );
+	} catch ( const std::exception& e ) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	std::cout << "a span: ";
+	a.printSpan();
 
 	return 0;
 }
