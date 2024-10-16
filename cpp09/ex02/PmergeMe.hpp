@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:54:06 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/09 19:24:36 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/16 17:24:04 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@
 
 class PmergeMe {
 	private:
-		char**	av;
-		bool	isSorted;
-		size_t	size;
+		char**					av;
+		std::vector<int64_t>	arguments;
+		bool					isSorted;
+		size_t					size;
 		
 		std::vector<int64_t>	vec;
 		std::deque<int64_t>		deq;
@@ -51,8 +52,6 @@ class PmergeMe {
 
 		void	vec_sort( void );
 		void	deq_sort( void );
-
-		void	printArguments( void );
 
 		template <typename Container>
 		static bool		isDuplicate( Container& vec, int64_t val ) {
@@ -78,44 +77,9 @@ class PmergeMe {
 			std::cout << std::endl;
 		}
 
-		template <typename T>
-		static void		sortPairs( T& Container ) { // Insertion Sort
-			int	length = static_cast<int>( Container.size() );
+		static void		sortPairs( std::vector< std::pair<int64_t, int64_t> >& Container );
+		static void		sortPairs( std::deque< std::pair<int64_t, int64_t> >& Container );
 
-			for ( int i = 1; i < length; i++ ) {
-				std::pair<int64_t, int64_t> p = Container.at(i);
-				int	j = i;
-
-				while ( j > 0 && p.first < Container.at(j - 1).first ) {
-					Container.at(j) = Container.at(j - 1);
-					j--;
-				}
-				Container.at(j) = p;
-			}
-		}
-
-		template <typename Container>
-		static Container	JacobsthalNumber( size_t size ) {
-			Container	vec(size + 1);
-
-			vec[0] = 0;
-			vec[1] = 1;
-
-			for ( int i = 2; i <= static_cast<int>(size); i++ ) {
-				vec[i] = vec[i - 1] + 2 * vec[i - 2];
-			}
-
-			Container	ansVec;
-
-			for ( int i = 1; i < static_cast<int>(vec.size()); i++ ) {
-				int	l = vec.at( i - 1 ), r = vec.at( i );
-				while ( r > l ) {
-					ansVec.push_back( r-- );
-				}
-				if (ansVec.size() >= size)
-					break;
-			}
-
-			return ( ansVec );
-		}
+		static void		JacobsthalNumber( std::vector<int64_t>& Container, size_t size );
+		static void		JacobsthalNumber( std::deque<int64_t>& Container, size_t size );
 };

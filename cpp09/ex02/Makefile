@@ -6,12 +6,12 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/01 09:26:41 by iassil            #+#    #+#              #
-#    Updated: 2024/10/09 12:34:24 by iassil           ###   ########.fr        #
+#    Updated: 2024/10/16 15:28:30 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CPP		=	c++
-CPP		+=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address
+CPP		+=	-Wall -Wextra -Werror -std=c++11 -fsanitize=address -g
 RM		=	rm -f
 
 NAME	=	PmergeMe

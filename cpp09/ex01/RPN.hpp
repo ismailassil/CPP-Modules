@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 11:35:32 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/05 12:11:37 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/16 15:02:38 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #define PLUS	'+'
 #define	SUB		'-'
 #define DIV		'/'
+#define ERROR	"Error"
 
 class RPN {
 	private:

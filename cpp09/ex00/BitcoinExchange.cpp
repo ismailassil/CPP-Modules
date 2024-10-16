@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 06:57:28 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/16 12:57:50 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/16 14:49:22 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ BitcoinExchange::BitcoinExchange( const char* database, const char* input ) {
 	}
 
 	while ( std::getline( database_fd, str ) ) {
-		if ( str.empty() ) {
+		if ( str.empty() || str[4] != '-' || str[7] != '-' || str[10] != ',' ) {
 			this->input_file.close();
 			database_fd.close();
-			throw "[database] file has an empty line";
+			throw "[database] file has an empty line or invalid syntax based on the header";
 		}
 		this->database.insert(str);
 	}
@@ -156,13 +156,11 @@ std::string	BitcoinExchange::getDate( std::string& str ) {
 	if ( month > 12 || month <= 0 || day > 31 || day <= 0 )
 		return ( "" );
 
-	// leap year == 29
-	if ( year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
-		months[1] = 29;	
+	if ( year % 400 == 0 || (year % 4 == 0 && year % 100 != 0) ) {
+		months[1] = 29;
 	}
-	if (day > months[month - 1])
+	if ( day > months[month - 1] )
 		return ( "" );
-
 	return ( str.substr(0, 10) );
 }
 

@@ -6,16 +6,18 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:54:04 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/10 08:34:49 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/16 18:01:31 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+#include <ctime>
 
 PmergeMe::PmergeMe() { }
 
 PmergeMe::PmergeMe( const PmergeMe& obj )
-	:	av(obj.av), isSorted(obj.isSorted), size(obj.size), vec(obj.vec), deq(obj.deq) { }
+	:	av(obj.av), arguments(obj.arguments), isSorted(obj.isSorted),
+		size(obj.size), vec(obj.vec), deq(obj.deq) { }
 
 PmergeMe& PmergeMe::operator=( const PmergeMe& obj ) {
 	if ( &obj != this ) {
@@ -24,6 +26,7 @@ PmergeMe& PmergeMe::operator=( const PmergeMe& obj ) {
 		av = obj.av;
 		isSorted = obj.isSorted;
 		size = obj.size;
+		arguments = obj.arguments;
 	}
 	return ( *this );
 }
@@ -31,23 +34,14 @@ PmergeMe& PmergeMe::operator=( const PmergeMe& obj ) {
 PmergeMe::~PmergeMe() { }
 
 PmergeMe::PmergeMe( char** av, size_t size )
-	:	av(av), isSorted(true), size(size) { }
-
-void	PmergeMe::printArguments( void ) {
-	for ( size_t i = 0; i < size; i++ ) {
-		std::cout << av[i];
-		if (i + 1 < size)
-			std::cout << ' ';
-	}
-	std::cout << std::endl;
-}
+	:	av(av), arguments(size), isSorted(true), size(size) { }
 
 void	PmergeMe::parseVector( void ) {
 	for ( size_t i = 0; i < size; i++ ) {
-		if ( av[i][0] == '\0' || !PmergeMe::isNum(av[i]) || std::strlen(av[i]) > 11 ) {
+		if ( av[i][0] == '\0' || !PmergeMe::isNum(av[i]) ) {
 			throw std::invalid_argument("Invalid input!");
 		}
-		int64_t val = PmergeMe::atoi(av[i]);
+		int64_t	val = PmergeMe::atoi(av[i]);
 		if ( PmergeMe::isDuplicate(vec, val) ) {
 			throw std::invalid_argument("Duplicate elements!");
 		}
@@ -56,12 +50,13 @@ void	PmergeMe::parseVector( void ) {
 		if ( i != 0 && val < vec.at(i - 1) )
 			isSorted = false;
 		vec.push_back( val );
+		arguments[i] = val;
 	}
 }
 
 void	PmergeMe::parseDeque( void ) {
 	for ( size_t i = 0; i < size; i++ ) {
-		if ( av[i][0] == '\0' || !PmergeMe::isNum(av[i]) || std::strlen(av[i]) > 11 ) {
+		if ( av[i][0] == '\0' || !PmergeMe::isNum(av[i]) ) {
 			throw std::invalid_argument("Invalid input!");
 		}
 		int64_t val = PmergeMe::atoi(av[i]);
@@ -96,7 +91,7 @@ void	PmergeMe::execute( void ) {
 		/** ================ ====== ================ */
 
 		std::cout << "Before\t: ";
-		printArguments();
+		printVec(arguments);
 
 		/** ================ Deque ================ */
 		deq_start	= clock();
@@ -104,7 +99,7 @@ void	PmergeMe::execute( void ) {
 		deq_sort();
 		deq_end		= clock();
 		/** ================ ===== ================ */
-	
+
 	} catch ( const std::exception& e ) {
 		throw ;
 	}
@@ -112,7 +107,7 @@ void	PmergeMe::execute( void ) {
 
 	std::cout << "After\t: ";
 	PmergeMe::printVec(vec);
-	
+
 	if ( !std::is_sorted(deq.begin(), deq.end()) || !std::is_sorted(vec.begin(), vec.end()) ) {
 		std::cout << "Not Sorted" << std::endl;
 		return ;
@@ -152,8 +147,10 @@ int64_t	PmergeMe::atoi( char *str ) {
 	int64_t	ans = 0;
 
 	if ( str[i] && (str[i] == '-' || str[i] == '+') ) {
-		if ( str[i] == '-' )
+		if ( str[i] == '-' ) {
 			sign = true;
+			throw std::invalid_argument("Negative number");
+		}
 		i++;
 	}
 
@@ -169,6 +166,7 @@ int64_t	PmergeMe::atoi( char *str ) {
 	if (res > INT_MAX || res < INT_MIN) {
 		throw std::invalid_argument("Number too large!");	
 	}
+
 	return ( res );
 }
 
@@ -254,7 +252,8 @@ void	PmergeMe::vec_sort( void ) {
 		** to improve the efficiency of Merging Two Sorted Containers
 		** 
 	*/
-	std::vector<int64_t> JacNumbers = JacobsthalNumber< std::vector<int64_t> >( vec.size() );
+	std::vector<int64_t> JacNumbers;
+	JacobsthalNumber( JacNumbers, vec.size() );
 
 	/*
 		* Insert the elements of the pendChain into the mainChain
@@ -333,7 +332,8 @@ void	PmergeMe::deq_sort( void ) {
 			pendChain.push_back( d[i].second );
 	}
 
-	std::deque<int64_t> JacNumbers = JacobsthalNumber< std::deque<int64_t> >( deq.size() );
+	std::deque<int64_t> JacNumbers;
+	JacobsthalNumber( JacNumbers, deq.size() );
 
 	for ( size_t PendIdx = 0, JacIdx = 0; PendIdx < pendChain.size() && JacIdx < JacNumbers.size(); JacIdx++ ) {
 		size_t	index = JacNumbers[JacIdx];
@@ -365,4 +365,74 @@ void	PmergeMe::deq_sort( void ) {
 
 	deq.clear();
 	deq = mainChain;
+}
+
+void		PmergeMe::sortPairs( std::vector< std::pair<int64_t, int64_t> >& Container ) {
+	int	length = static_cast<int>( Container.size() );
+
+	for ( int i = 1; i < length; i++ ) {
+		std::pair<int64_t, int64_t> p = Container.at(i);
+		int	j = i;
+
+		while ( j > 0 && p.first < Container.at(j - 1).first ) {
+			Container.at(j) = Container.at(j - 1);
+			j--;
+		}
+		Container.at(j) = p;
+	}
+}
+
+void		PmergeMe::sortPairs( std::deque< std::pair<int64_t, int64_t> >& Container ) {
+	int	length = static_cast<int>( Container.size() );
+
+	for ( int i = 1; i < length; i++ ) {
+		std::pair<int64_t, int64_t> p = Container.at(i);
+		int	j = i;
+
+		while ( j > 0 && p.first < Container.at(j - 1).first ) {
+			Container.at(j) = Container.at(j - 1);
+			j--;
+		}
+		Container.at(j) = p;
+	}
+}
+
+void	PmergeMe::JacobsthalNumber( std::vector<int64_t>& Container, size_t size ) {
+	std::vector<int64_t>	vec(size + 1);
+
+	vec[0] = 0;
+	vec[1] = 1;
+
+	for ( int i = 2; i <= static_cast<int>(size); i++ ) {
+		vec[i] = vec[i - 1] + 2 * vec[i - 2];
+	}
+
+	for ( int i = 1; i < static_cast<int>(vec.size()); i++ ) {
+		int	l = vec.at( i - 1 ), r = vec.at( i );
+		while ( r > l ) {
+			Container.push_back( r-- );
+		}
+		if (Container.size() >= size)
+			break;
+	}
+}
+
+void	PmergeMe::JacobsthalNumber( std::deque<int64_t>& Container, size_t size ) {
+	std::deque<int64_t>	vec(size + 1);
+
+	vec[0] = 0;
+	vec[1] = 1;
+
+	for ( int i = 2; i <= static_cast<int>(size); i++ ) {
+		vec[i] = vec[i - 1] + 2 * vec[i - 2];
+	}
+
+	for ( int i = 1; i < static_cast<int>(vec.size()); i++ ) {
+		int	l = vec.at( i - 1 ), r = vec.at( i );
+		while ( r > l ) {
+			Container.push_back( r-- );
+		}
+		if (Container.size() >= size)
+			break;
+	}
 }
