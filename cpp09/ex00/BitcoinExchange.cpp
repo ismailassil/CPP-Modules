@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 06:57:28 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/16 11:28:42 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/16 12:57:50 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,14 @@ BitcoinExchange::BitcoinExchange( const char* database, const char* input ) {
 	}
 
 	std::string		str;
-	while ( std::getline(database_fd, str) ) {
+	std::getline( database_fd, str );
+	if ( str != "date,exchange_rate" ) {
+		this->input_file.close();
+		database_fd.close();	
+		throw "[database] file doesn't have a header row";
+	}
+
+	while ( std::getline( database_fd, str ) ) {
 		if ( str.empty() ) {
 			this->input_file.close();
 			database_fd.close();
@@ -136,26 +143,33 @@ void	BitcoinExchange::execute( void ) {
 }
 
 std::string	BitcoinExchange::getDate( std::string& str ) {
-	if ( str.length() < 10 )
-		return ( "" );
-	for ( size_t i = 0; i < str.length(); i++ ) {
-		char*	end;
-		int		year	= strtol(str.c_str(), &end, 10);
-		int		month	= strtol(str.c_str() + 5, &end, 10);
-		int		day		= strtol(str.c_str() + 8, &end, 10);
+	int months[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-		(void)end, (void)year;
-		if ( month > 12 || month <= 0 || day > 31 || day <= 0 ) {
-			return ( "" );
-		}
+	if ( str.length() < 10 || str[4] != '-' || str[7] != '-' )
+		return ( "" );
+	char*	end;
+	int		year	= strtol(str.c_str(), &end, 10);
+	int		month	= strtol(str.c_str() + 5, &end, 10);
+	int		day		= strtol(str.c_str() + 8, &end, 10);
+	
+	(void)end, (void)year;
+	if ( month > 12 || month <= 0 || day > 31 || day <= 0 )
+		return ( "" );
+
+	// leap year == 29
+	if ( year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+		months[1] = 29;	
 	}
+	if (day > months[month - 1])
+		return ( "" );
+
 	return ( str.substr(0, 10) );
 }
 
 std::string	BitcoinExchange::getPrice( std::string& str ) {
 	std::string	re_str = str;
 
-	if ( str.length() < 13 )
+	if ( str.length() < 13 || str[10] != ' ' || str[11] != '|' || str[12] != ' ' )
 		return ( BAD_INPUT );
 	str = str.substr(13);
 	if ( str.empty() || std::isspace( str.front() ) )
