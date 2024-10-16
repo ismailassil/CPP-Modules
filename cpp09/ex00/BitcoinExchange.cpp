@@ -6,93 +6,123 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 06:57:28 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/05 11:15:56 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/16 11:28:42 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <algorithm>
-#include <cctype>
-#include <cstddef>
-#include <fstream>
-#include <sstream>
-#include <string>
 
 BitcoinExchange::BitcoinExchange() { }
 
 BitcoinExchange::BitcoinExchange( const char* database, const char* input ) {
-	std::ifstream	fd(database);
-	
-	if (fd.fail()) {
-		throw "file not found!";
-	}
+	std::ifstream	database_fd(database);
+	this->input = input;
+
+	if ( database_fd.fail() )
+		throw "[database] file not found!";
+	if ( database_fd.peek() == EOF )
+		throw "[database] file is empty";
 
 	this->input_file.open(input);
 
-	if (this->input_file.fail()) {
-		fd.close();
-		throw "file not found!";
+	if ( this->input_file.fail() ) {
+		database_fd.close();
+		throw "[input] file not found!";
+	}
+	
+	if ( this->input_file.peek() == EOF ) {
+		this->input_file.close();
+		database_fd.close();
+		throw "[input] file is empty";
 	}
 
 	std::string		str;
-	while ( std::getline(fd, str) ) {
-		this->database.push_back(str);
+	while ( std::getline(database_fd, str) ) {
+		if ( str.empty() ) {
+			this->input_file.close();
+			database_fd.close();
+			throw "[database] file has an empty line";
+		}
+		this->database.insert(str);
 	}
 
-	this->database.sort();
-
-	fd.close();
+	database_fd.close();
 }
 
-BitcoinExchange::BitcoinExchange( const BitcoinExchange& obj )
-	:	database(obj.database) { }
+BitcoinExchange::BitcoinExchange( const BitcoinExchange& obj ) : database(obj.database), input(obj.input) {
+
+	this->input_file.open(obj.input);
+
+	if ( this->input_file.fail() ) {
+		throw "[input] file not found!";
+	}
+
+	if ( this->input_file.peek() == EOF ) {
+		this->input_file.close();
+		throw "[input] file is empty";
+	}
+}
 
 BitcoinExchange& BitcoinExchange::operator=( const BitcoinExchange& obj ) {
-	if ( &obj == this )
-		return ( *this );
-	database = obj.database;
+	if ( &obj != this ) {
+		database = obj.database;
+
+		this->input = obj.input;
+		this->input_file.open(obj.input);
+		if ( this->input_file.fail() ) {
+			throw "[input] file not found!";
+		}
+
+		if ( this->input_file.peek() == EOF ) {
+			this->input_file.close();
+			throw "[input] file is empty";
+		}
+	}
 	return ( *this );
 }
 
-BitcoinExchange::~BitcoinExchange() { }
+BitcoinExchange::~BitcoinExchange() {
+	database.clear();
+	this->input_file.close();
+}
 
 void	BitcoinExchange::execute( void ) {
 	std::string	str;
 
 	std::getline(this->input_file, str);
-	if (str != "date | value") {
-		std::cerr << "Error: Bad input"	<< std::endl;
+	if ( str != "date | value" ) {
+		std::cout << "Error: Bad input"	<< std::endl;
 		return ;
 	}
 
 	while ( std::getline(this->input_file, str) ) {
 		std::string	out_str = str;
 
-		if (str.empty()) {
-			std::cerr << BAD_INPUT << "[" << out_str << "]" << std::endl;
+		if ( str.empty() ) {
+			std::cout << BAD_INPUT << "[" << out_str << "]" << std::endl;
 			continue ;
 		}
 		std::string	date = getDate(str);
 		if (date.empty()) {
-			std::cerr << BAD_INPUT << "[" << out_str << "]" << std::endl;
+			std::cout << BAD_INPUT << "[" << out_str << "]" << std::endl;
 			continue ;	
 		}
 		std::string	price = getPrice(str);
 		if ( price == BAD_INPUT ) {
-			std::cerr << BAD_INPUT << "[" << out_str << "]" << std::endl;
+			std::cout << BAD_INPUT << "[" << out_str << "]" << std::endl;
 			continue ;
 		}
 		if ( price == TOO_LARGE || price == NOT_POSITIVE ) {
-			std::cerr << price << std::endl;
+			std::cout << price << std::endl;
 			continue ;
 		}
 		
 		double	exchangeRate = getExchangeRate(date);
 		if ( exchangeRate == -1 ) {
-			std::cerr << DATE_NOT_FOUND << std::endl;
+			std::cout << DATE_NOT_FOUND << std::endl;
 			continue ;
 		} else if ( exchangeRate == -2 ) {
-			std::cerr << BAD_INPUT << date << std::endl;
+			std::cout << BAD_INPUT << date << std::endl;
 			continue ;
 		}
 
@@ -147,7 +177,7 @@ std::string	BitcoinExchange::getPrice( std::string& str ) {
 }
 
 double		BitcoinExchange::getExchangeRate( std::string& date ) {
-	std::list<std::string>::iterator it;
+	std::set<std::string>::iterator it;
 
 	it = std::upper_bound(this->database.begin(), this->database.end(), date);
 	if ( it != this->database.begin() ) {

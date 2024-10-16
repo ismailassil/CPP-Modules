@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 14:53:32 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/09 19:51:48 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/16 10:20:15 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( int ac, char **av ) {
 	 */
 
 	if ( ac < 3 ) {
-		std::cerr << "Error: Enter at least 3 numbers" << std::endl;
+		std::cout << "Error: Enter at least 3 numbers" << std::endl;
 		return ( 1 );
 	}
 
@@ -28,7 +28,7 @@ int main( int ac, char **av ) {
 		PmergeMe	pm( av + 1, static_cast<size_t>(ac - 1));
 		pm.execute();
 	} catch ( const std::exception& e ) {
-		std::cerr << "Error: " << e.what() << std::endl;
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 
 	return ( 0 );

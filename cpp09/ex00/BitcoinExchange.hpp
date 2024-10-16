@@ -6,14 +6,15 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 06:57:30 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/05 09:59:17 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/16 11:12:01 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream> // IWYU pragma: keep
-#include <list>
 #include <fstream>
+#include <set>
+#include <sstream> // IWYU pragma: keep
 
 #define MAX_VALUE		1000
 #define MIN_VALUE		0
@@ -24,7 +25,8 @@
 
 class BitcoinExchange {
 	private:
-		std::list<std::string>	database;
+		std::set<std::string>	database;
+		std::string				input;
 		std::ifstream			input_file;
 
 		BitcoinExchange();
