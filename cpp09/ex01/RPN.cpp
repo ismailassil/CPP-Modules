@@ -55,7 +55,11 @@ void	RPN::doMath( char* av ) {
 			throw ERROR;
 		}
 	}
-	std::cout << st.top() << std::endl;
+	int64_t ans = st.top();
+	st.pop();
+	if ( st.size() != 0 )
+		throw ERROR;
+	std::cout << ans << std::endl;
 }
 
 bool	RPN::isNum( char c ) {
