@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <ctime>
 
 PmergeMe::PmergeMe() { }
 
