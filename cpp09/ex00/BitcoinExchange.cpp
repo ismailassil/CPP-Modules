@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 06:57:28 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/16 14:49:22 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/18 16:15:55 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,8 @@ BitcoinExchange::BitcoinExchange( const char* database, const char* input ) {
 		database_fd.close();	
 		throw "[database] file doesn't have a header row";
 	}
-
 	while ( std::getline( database_fd, str ) ) {
-		if ( str.empty() || str[4] != '-' || str[7] != '-' || str[10] != ',' ) {
+		if ( str.empty() || str.length() < 12 || str[4] != '-' || str[7] != '-' || str[10] != ',' ) {
 			this->input_file.close();
 			database_fd.close();
 			throw "[database] file has an empty line or invalid syntax based on the header";
@@ -191,8 +190,8 @@ std::string	BitcoinExchange::getPrice( std::string& str ) {
 double		BitcoinExchange::getExchangeRate( std::string& date ) {
 	std::set<std::string>::iterator it;
 
-	it = std::upper_bound(this->database.begin(), this->database.end(), date);
-	if ( it != this->database.begin() ) {
+	it = std::upper_bound(database.begin(), database.end(), date);
+	if ( it != database.begin() || ( it == database.begin() && (*it).substr(0, 10) == date ) ) {
 		const char*	_exR;
 		if ( (*it).substr(0, 10) == date )
 			_exR = (*it).c_str() + 11;

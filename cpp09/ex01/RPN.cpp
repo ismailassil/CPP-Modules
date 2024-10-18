@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 11:35:31 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/16 15:03:56 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/18 16:29:44 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,9 @@ void	RPN::doMath( char* av ) {
 			throw ERROR;
 		}
 	}
-	int64_t ans = st.top();
-	st.pop();
-	if ( st.size() != 0 )
+	if ( st.size() != 1 )
 		throw ERROR;
-	std::cout << ans << std::endl;
+	std::cout << st.top() << std::endl;
 }
 
 bool	RPN::isNum( char c ) {
