@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 14:09:26 by iassil            #+#    #+#             */
-/*   Updated: 2024/07/13 14:22:00 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/23 16:00:23 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
+#define MAX_SIZE 1024
+
 class	Character : public ICharacter {
 	private:
 		const static int	SIZE;
@@ -22,7 +24,7 @@ class	Character : public ICharacter {
 		int					index;
 		int					counter;
 		AMateria*			inventory[4];
-		AMateria*			gCollecter[1024];
+		AMateria*			gCollecter[MAX_SIZE];
 		std::string			name;
 
 	public:

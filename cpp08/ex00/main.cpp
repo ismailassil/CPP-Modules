@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 09:37:54 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/15 16:47:26 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/23 16:05:58 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <iostream>
 
 int main( void ) {
+    std::vector<int> emptyvec;
+
     std::vector<int> vec;
     vec.push_back(1);
     vec.push_back(2);
@@ -36,6 +38,17 @@ int main( void ) {
     st.insert(11);
     st.insert(12);
 
+	std::cout << "empty contaienr" << std::endl;
+	std::cout << "======================\n";
+	try {
+		std::vector<int>::iterator it = easyfind(emptyvec, 5);
+		(void)it;
+		std::cout << "The Occurrence is found!" << std::endl;
+	} catch (std::exception& e) {
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+	std::cout << "======================\n\n";
+	
 	std::cout << "vec = {1, 2, 3, 4, 5}" << std::endl;
 	std::cout << "======================\n";
 	try {

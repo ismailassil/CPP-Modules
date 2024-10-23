@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 11:35:29 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/18 16:27:13 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/23 16:03:05 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int main( int ac, char** av ) {
 	if ( ac != 2 ) {
-		std::cerr << "Error: Enter 2 arguments" << std::endl;
+		std::cerr << "Error: Enter 1 arguments" << std::endl;
+		std::cerr << "example: ./RPN '3 7 +'" << std::endl;
 		return ( 1 );
 	}
 

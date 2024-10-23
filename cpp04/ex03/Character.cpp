@@ -6,15 +6,14 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 14:11:41 by iassil            #+#    #+#             */
-/*   Updated: 2024/08/13 03:29:50 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/23 16:00:08 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
-#include <cstddef>
 
 const int	Character::SIZE = 4;
-const int	Character::bSIZE = 1024;
+const int	Character::bSIZE = MAX_SIZE;
 
 Character::Character( void ) {
 	index = 0;
@@ -72,15 +71,23 @@ std::string const & Character::getName() const {
 }
 
 void	Character::equip(AMateria* m) {
+	if (counter == MAX_SIZE) {
+		for (int i = 0; i < MAX_SIZE; i++) {
+			delete this->gCollecter[i];
+		}
+		counter = 0;
+	}
+
 	if (m == NULL) {
 		std::cerr << "NULL Materia" << std::endl;
 		return ;
 	}
+	
+	for (int i = 0; i < index; i++) {
+		if (m == this->inventory[i])
+			return ;
+	}
 	if (index >= 0 && index <= 3) {
-		for ( int i = 0; i < index; i++ ) {
-			if (this->inventory[i] == m)
-				return ;
-		}
 		this->inventory[index] = m;
 		index++;
 	}
@@ -89,8 +96,10 @@ void	Character::equip(AMateria* m) {
 void	Character::unequip(int idx) {
 	if (idx < 0 || idx > 3 || idx > index)
 		return ;
+
 	this->gCollecter[counter++] = this->inventory[idx];
 	this->inventory[idx] = 0;
+
 	for ( int i = idx; i < index; i++ )
 		this->inventory[i] = this->inventory[i + 1];
 	index--;

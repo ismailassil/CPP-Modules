@@ -6,7 +6,7 @@
 #    By: iassil <iassil@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/09 05:37:36 by iassil            #+#    #+#              #
-#    Updated: 2024/07/14 23:09:24 by iassil           ###   ########.fr        #
+#    Updated: 2024/07/17 10:46:13 by iassil           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,22 +30,22 @@ $(NAME): $(OBJ)
 	@echo "$(GREEN)[ ✓ ] Executable file Compiled Successfully!$(RESET)"
 
 main.o: main.cpp main.hpp
-	$(CPP) -c $< -o $@
+	@$(CPP) -c $< -o $@
 
 AMateria.o: AMateria.cpp AMateria.hpp ICharacter.hpp
-	$(CPP) -c $< -o $@
+	@$(CPP) -c $< -o $@
 
 Character.o: Character.cpp Character.hpp AMateria.hpp ICharacter.hpp
-	$(CPP) -c $< -o $@
+	@$(CPP) -c $< -o $@
 
 Cure.o: Cure.cpp Cure.hpp AMateria.hpp
-	$(CPP) -c $< -o $@
+	@$(CPP) -c $< -o $@
 
 Ice.o: Ice.cpp Ice.hpp AMateria.hpp
-	$(CPP) -c $< -o $@
+	@$(CPP) -c $< -o $@
 
 MateriaSource.o: MateriaSource.cpp MateriaSource.hpp IMateriaSource.hpp AMateria.hpp
-	$(CPP) -c $< -o $@
+	@$(CPP) -c $< -o $@
 
 re: clean $(NAME)
 

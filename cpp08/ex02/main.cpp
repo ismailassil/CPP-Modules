@@ -6,12 +6,11 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:11:10 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/15 17:50:40 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/23 16:06:42 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
-#include <cstddef>
 
 int main()
 {
