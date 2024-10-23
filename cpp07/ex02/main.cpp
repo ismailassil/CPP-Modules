@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 11:45:39 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/14 12:09:44 by iassil           ###   ########.fr       */
+/*   Updated: 2024/10/23 15:43:36 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main ( void ) {
 	// atexit(leaks);
 
 	Array<int> a(VAL);
+	Array<int> bb(a);
 	Array<std::string> s;
 
 	try {
