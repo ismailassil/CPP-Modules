@@ -63,13 +63,13 @@ Key topics include:
 - Template specialization and instantiation
 
 ### 08 - **Templated containers, iterators, algorithms**
-This module introduces the powerful C++ Standard Template Library (STL):
+Key topics include:
 - Iterators
 - Algorithms (e.g., `find`, `sort`)
 - Functors and function objects
 
 ### 09 - **The Standard Template Library (STL)**
-This module covers:
+This module introduces the powerful C++ Standard Template Library (STL):
 - Containers (e.g., `vector`, `list`, `map`, `stack`, `deque`)
 - Implementing the Merge-Insert Sort Algorithm
 
