@@ -1,7 +1,4 @@
-Here's a template for a README file that covers the C++ modules from the 42Cursus. It provides an overview of the different modules and structure that you can tailor to your GitHub project.
-
 ---
-
 # C++ Modules - 42cursus
 
 ## Introduction
