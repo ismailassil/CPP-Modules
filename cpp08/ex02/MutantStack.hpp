@@ -20,6 +20,8 @@ class MutantStack : public std::stack<T, Container> {
 	public:
 		typedef typename Container::iterator iterator;
 		typedef typename Container::const_iterator const_iterator;
+		typedef typename Container::reverse_iterator reverse_iterator;
+		typedef typename Container::const_iterator const_iterator;
 
 		MutantStack() { }
 		MutantStack( const MutantStack& obj ) { *this = obj; }
@@ -33,6 +35,20 @@ class MutantStack : public std::stack<T, Container> {
 			return ( this->c.begin() );
 		}
 		iterator end() {
+			return ( this->c.end() );
+		}
+
+		reverse_iterator begin() {
+			return ( this->c.begin() );
+		}
+		reverse_iterator end() {
+			return ( this->c.end() );
+		}
+
+		const_reverse_iterator begin() const {
+			return ( this->c.begin() );
+		}
+		const_reverse_iterator end() const {
 			return ( this->c.end() );
 		}
 
