@@ -6,7 +6,7 @@
 /*   By: iassil <iassil@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 11:10:15 by iassil            #+#    #+#             */
-/*   Updated: 2024/10/15 16:52:36 by iassil           ###   ########.fr       */
+/*   Updated: 2024/12/07 13:17:49 by iassil           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	Span::addNumber( int input ) {
 
 uint	Span::shortestSpan( void ) {
 	std::vector<int>	tmp = vec;
-	int	span;
+	uint	span;
 
 	if ( vec.empty() )
 		throw Span::EmptySpanException();
